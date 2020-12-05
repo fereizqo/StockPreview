@@ -18,6 +18,8 @@
 		4968C4C5257B79BD00A1D5E2 /* URLRequest+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4C4257B79BD00A1D5E2 /* URLRequest+Resource.swift */; };
 		4968C4CA257B82C000A1D5E2 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4C9257B82C000A1D5E2 /* APIClient.swift */; };
 		4968C4CF257B842800A1D5E2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4CE257B842800A1D5E2 /* Repository.swift */; };
+		4968C4D5257B983F00A1D5E2 /* IntradayHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4D3257B983F00A1D5E2 /* IntradayHeaderTableViewCell.swift */; };
+		4968C4D6257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C4D4257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib */; };
 		49BA1909257B198900CD7BEC /* DataSymbolViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */; };
 		49BA1916257B1B2F00CD7BEC /* IntradayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */; };
 		49BA191E257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */; };
@@ -62,6 +64,8 @@
 		4968C4C4257B79BD00A1D5E2 /* URLRequest+Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Resource.swift"; sourceTree = "<group>"; };
 		4968C4C9257B82C000A1D5E2 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		4968C4CE257B842800A1D5E2 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		4968C4D3257B983F00A1D5E2 /* IntradayHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		4968C4D4257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntradayHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataSymbolViewCell.xib; sourceTree = "<group>"; };
 		49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewController.swift; sourceTree = "<group>"; };
 		49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSymbolTableViewCell.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				49E0E2172579D62700A18908 /* LaunchScreen.storyboard */,
 				49E0E2122579D62600A18908 /* Main.storyboard */,
 				49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */,
+				4968C4D4257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib */,
 				49BA1948257B40A800CD7BEC /* DailyData1TableViewCell.xib */,
 			);
 			path = View;
@@ -156,6 +161,7 @@
 			children = (
 				49BA18FC257B12F100CD7BEC /* AppConfig */,
 				49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */,
+				4968C4D3257B983F00A1D5E2 /* IntradayHeaderTableViewCell.swift */,
 				49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */,
 				49BA1932257B3F8A00CD7BEC /* DailyDataViewController.swift */,
 				49BA1947257B40A800CD7BEC /* DailyData1TableViewCell.swift */,
@@ -331,6 +337,7 @@
 				49E0E2162579D62700A18908 /* Assets.xcassets in Resources */,
 				49BA1909257B198900CD7BEC /* DataSymbolViewCell.xib in Resources */,
 				49E0E2142579D62600A18908 /* Main.storyboard in Resources */,
+				4968C4D6257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib in Resources */,
 				49BA194A257B40A800CD7BEC /* DailyData1TableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +373,7 @@
 				49E0E20D2579D62600A18908 /* AppDelegate.swift in Sources */,
 				4968C49A257B72B400A1D5E2 /* IntradayData5Min.swift in Sources */,
 				4968C4AF257B76CE00A1D5E2 /* IntradayData15Min.swift in Sources */,
+				4968C4D5257B983F00A1D5E2 /* IntradayHeaderTableViewCell.swift in Sources */,
 				4968C4A2257B75B300A1D5E2 /* IntradayData1Min.swift in Sources */,
 				49BA191E257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift in Sources */,
 				4968C4CF257B842800A1D5E2 /* Repository.swift in Sources */,

@@ -59,6 +59,12 @@ class IntradayViewController: UIViewController {
 }
 
 extension IntradayViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = Bundle.main.loadNibNamed("IntradayHeaderTableViewCell", owner: self, options: nil)?.first as! IntradayHeaderTableViewCell
+        
+        return headerView
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timeSeriesArray1Min.count
     }
