@@ -25,6 +25,14 @@ class IntradayViewController: UIViewController {
         
         intradayTableView.delegate = self
         intradayTableView.dataSource = self
+        
+        // Appeareances
+        symbolButton.layer.cornerRadius = 5
+        symbolButton.layer.borderWidth = 1
+        symbolButton.layer.borderColor = UIColor.darkGray.cgColor
+        sortingButton.layer.cornerRadius = 5
+        sortingButton.layer.borderWidth = 1
+        sortingButton.layer.borderColor = UIColor.darkGray.cgColor
     }
     
 }

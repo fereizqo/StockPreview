@@ -53,13 +53,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 December 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjc-PN-uHB">
-                                <rect key="frame" x="20" y="108" width="125" height="18"/>
+                                <rect key="frame" x="20" y="98" width="125" height="18"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQ1-DH-lqB">
-                                <rect key="frame" x="20" y="131" width="54" height="35"/>
+                                <rect key="frame" x="20" y="121" width="54" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WQ1-DH-lqB" secondAttribute="height" multiplier="54:35" id="tJi-Rl-mBH"/>
                                     <constraint firstAttribute="height" constant="35" id="u29-Iy-TKs"/>
@@ -71,11 +71,11 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zjy-i4-lsb">
-                                <rect key="frame" x="20" y="218" width="374" height="585"/>
+                                <rect key="frame" x="20" y="208" width="374" height="595"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kc-9W-Yub">
-                                <rect key="frame" x="20" y="171" width="109" height="27"/>
+                                <rect key="frame" x="20" y="161" width="109" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5Kc-9W-Yub" secondAttribute="height" multiplier="109:27" id="bZ6-od-rtq"/>
                                     <constraint firstAttribute="height" constant="27" id="xIU-uE-q98"/>
@@ -96,7 +96,7 @@
                             <constraint firstItem="zjy-i4-lsb" firstAttribute="leading" secondItem="Epn-mt-MKV" secondAttribute="leading" constant="20" id="GTf-f8-DMK"/>
                             <constraint firstItem="Epn-mt-MKV" firstAttribute="bottom" secondItem="zjy-i4-lsb" secondAttribute="bottom" constant="10" id="Gi3-CO-9Pp"/>
                             <constraint firstItem="5Kc-9W-Yub" firstAttribute="top" secondItem="WQ1-DH-lqB" secondAttribute="bottom" constant="5" id="Ly2-AT-H0Z"/>
-                            <constraint firstItem="hjc-PN-uHB" firstAttribute="top" secondItem="Epn-mt-MKV" secondAttribute="top" constant="20" id="YD0-pO-Rrq"/>
+                            <constraint firstItem="hjc-PN-uHB" firstAttribute="top" secondItem="Epn-mt-MKV" secondAttribute="top" constant="10" id="YD0-pO-Rrq"/>
                             <constraint firstItem="WQ1-DH-lqB" firstAttribute="leading" secondItem="Epn-mt-MKV" secondAttribute="leading" constant="20" id="jWq-0c-8cQ"/>
                             <constraint firstItem="Epn-mt-MKV" firstAttribute="trailing" secondItem="zjy-i4-lsb" secondAttribute="trailing" constant="20" id="lGO-zb-RTf"/>
                             <constraint firstItem="WQ1-DH-lqB" firstAttribute="top" secondItem="hjc-PN-uHB" secondAttribute="bottom" constant="5" id="wzq-hd-dHE"/>
