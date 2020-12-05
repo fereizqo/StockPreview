@@ -135,18 +135,54 @@
         <!--Daily Adjusted-->
         <scene sceneID="jCj-ph-MHv">
             <objects>
-                <viewController id="PF1-vw-mLu" sceneMemberID="viewController">
+                <viewController id="PF1-vw-mLu" customClass="DailyDataViewController" customModule="StockPreview" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CXe-SZ-ZSQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Rr5-bf-1tq">
+                                <rect key="frame" x="20" y="103" width="185.5" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Table of Daily Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7n-vU-IIu">
+                                        <rect key="frame" x="0.0" y="0.0" width="148" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Date : 3 December 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tD7-38-50e">
+                                        <rect key="frame" x="0.0" y="20.5" width="185.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bd0-C3-2q4">
+                                <rect key="frame" x="20" y="188" width="374" height="615"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ed0-Pa-tCw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bd0-C3-2q4" firstAttribute="leading" secondItem="ed0-Pa-tCw" secondAttribute="leading" constant="20" id="W0S-P0-LW9"/>
+                            <constraint firstItem="bd0-C3-2q4" firstAttribute="top" secondItem="Rr5-bf-1tq" secondAttribute="bottom" constant="50" id="dgv-FV-GIO"/>
+                            <constraint firstItem="Rr5-bf-1tq" firstAttribute="top" secondItem="ed0-Pa-tCw" secondAttribute="top" constant="15" id="iJ0-CD-KFu"/>
+                            <constraint firstItem="ed0-Pa-tCw" firstAttribute="trailing" secondItem="bd0-C3-2q4" secondAttribute="trailing" constant="20" id="lzD-iR-SU5"/>
+                            <constraint firstItem="Rr5-bf-1tq" firstAttribute="leading" secondItem="ed0-Pa-tCw" secondAttribute="leading" constant="20" id="prp-Et-G8d"/>
+                            <constraint firstItem="ed0-Pa-tCw" firstAttribute="bottom" secondItem="bd0-C3-2q4" secondAttribute="bottom" constant="10" id="vw3-Xk-PfU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Daily Adjusted" id="36b-6F-eEs"/>
+                    <connections>
+                        <outlet property="dailyDataTableView" destination="bd0-C3-2q4" id="LlK-Qr-dI5"/>
+                        <outlet property="dateLabel" destination="tD7-38-50e" id="pEG-IL-T2a"/>
+                        <outlet property="titleTableLabel" destination="S7n-vU-IIu" id="zI1-GW-Wbj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJF-pC-xFD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="935" y="824"/>
+            <point key="canvasLocation" x="934.78260869565224" y="823.66071428571422"/>
         </scene>
     </scenes>
     <resources>
