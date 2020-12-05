@@ -30,6 +30,9 @@ class IntradayViewController: UIViewController {
         intradayTableView.dataSource = self
         
         // Appeareances
+//        symbolButton.titleLabel?.adjustsFontSizeToFitWidth = true
+//        symbolButton.titleLabel?.numberOfLines = 0
+//        symbolButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         symbolButton.layer.cornerRadius = 5
         symbolButton.layer.borderWidth = 1
         symbolButton.layer.borderColor = UIColor.darkGray.cgColor
@@ -37,25 +40,84 @@ class IntradayViewController: UIViewController {
         sortingButton.layer.borderWidth = 1
         sortingButton.layer.borderColor = UIColor.darkGray.cgColor
         
+        // Checking symbol are selected or not
+        firstLogin()
+    }
+    
+    func firstLogin() {
+        // Selected symbol is set
+        if let stockSymbol = UserDefaults.standard.string(forKey: "StockSymbol") {
+            intradayTableView.isHidden = false
+            sortingButton.isHidden = false
+            symbolButton.setTitle(stockSymbol, for: .normal)
+            symbolButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
+        }
+        // Selected symbol was not set
+        else {
+            intradayTableView.isHidden = true
+            sortingButton.isHidden = true
+            symbolButton.setTitle("Input", for: .normal)
+            symbolButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        }
+        
+    }
+    
+    func getIntradayData(symbol: String) {
         repository.getIntradayData1Min(symbol: "IBM"){ result in
             switch result {
             case .success(let items):
-                
+
                 for (key, value) in items.timeSeries1Min {
                     self.timeSeriesArray1Min.append((key,value))
                 }
-                
+
                 // Update tableview from main thread
                 DispatchQueue.main.async {
                     self.intradayTableView.reloadData()
                 }
-                
+
             case .failure(let error):
                 print("get error intraday data: \(error)")
             }
         }
     }
     
+    @IBAction func symbolButtonTapped(_ sender: UIButton) {
+        // Creating alert
+        let alert = UIAlertController(title: "Input Stock Symbol", message: "Please input stock symbol to get it's information. \n (example: IDX)", preferredStyle: .alert)
+        // Adding textfield to alert
+        alert.addTextField { textField in
+            textField.placeholder = "Input symbol"
+            textField.autocapitalizationType = .allCharacters
+        }
+        
+        // Creating action - oke
+        let okeAction = UIAlertAction(title: "Oke", style: .default) { alertAction in
+            let textField = alert.textFields![0] as UITextField
+            if let inputText = textField.text {
+                // Store preferences stock symbol
+                UserDefaults.standard.set(inputText, forKey: "StockSymbol")
+                // Set appearances
+                self.firstLogin()
+                // Get data
+                self.getIntradayData(symbol: inputText)
+            }
+        }
+        // Creating action - cancel
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        // Adding action to textfield
+        alert.addAction(okeAction)
+        alert.addAction(cancelAction)
+        
+        // Present alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func sortingButtonTapped(_ sender: UIButton) {
+        
+    }
 }
 
 extension IntradayViewController: UITableViewDelegate, UITableViewDataSource {

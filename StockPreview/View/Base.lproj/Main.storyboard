@@ -59,23 +59,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQ1-DH-lqB">
-                                <rect key="frame" x="20" y="121" width="54" height="35"/>
+                                <rect key="frame" x="20" y="121" width="83" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="WQ1-DH-lqB" secondAttribute="height" multiplier="54:35" id="tJi-Rl-mBH"/>
-                                    <constraint firstAttribute="height" constant="35" id="u29-Iy-TKs"/>
+                                    <constraint firstAttribute="width" secondItem="WQ1-DH-lqB" secondAttribute="height" multiplier="83:46" id="3nA-mt-OPp"/>
+                                    <constraint firstAttribute="width" constant="83" id="He3-3V-cmI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <inset key="titleEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" title="IDX">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="symbolButtonTapped:" destination="74D-Kk-FiI" eventType="touchUpInside" id="qpt-o9-VIK"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zjy-i4-lsb">
-                                <rect key="frame" x="20" y="208" width="374" height="595"/>
+                                <rect key="frame" x="20" y="219" width="374" height="584"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kc-9W-Yub">
-                                <rect key="frame" x="20" y="161" width="109" height="27"/>
+                                <rect key="frame" x="20" y="172" width="109" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5Kc-9W-Yub" secondAttribute="height" multiplier="109:27" id="bZ6-od-rtq"/>
                                     <constraint firstAttribute="height" constant="27" id="xIU-uE-q98"/>
@@ -85,6 +88,9 @@
                                 <state key="normal" title="Sort by : Open ↑ ">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="sortingButtonTapped:" destination="74D-Kk-FiI" eventType="touchUpInside" id="TFJ-VU-H0b"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Epn-mt-MKV"/>
