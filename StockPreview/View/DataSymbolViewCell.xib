@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="d0a-s0-OFA" customClass="DataSymbolTableViewCell" customModule="StockPreview" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d0a-s0-OFA" id="Me6-JK-oQ6">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3G-nc-S8B">
+                        <rect key="frame" x="0.0" y="0.0" width="103.5" height="44"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TF0-ya-hL9">
+                        <rect key="frame" x="103.5" y="0.0" width="103.5" height="44"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjJ-Tp-ZsM">
+                        <rect key="frame" x="207" y="0.0" width="103.5" height="44"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyC-I5-Mmo">
+                        <rect key="frame" x="310.5" y="0.0" width="103.5" height="44"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="FyC-I5-Mmo" firstAttribute="top" secondItem="Me6-JK-oQ6" secondAttribute="top" id="1Wf-pQ-hIm"/>
+                    <constraint firstItem="EjJ-Tp-ZsM" firstAttribute="width" secondItem="Me6-JK-oQ6" secondAttribute="width" multiplier="0.25" id="9JK-5o-3qo"/>
+                    <constraint firstAttribute="bottom" secondItem="EjJ-Tp-ZsM" secondAttribute="bottom" id="Dly-Mh-66Y"/>
+                    <constraint firstAttribute="bottom" secondItem="FyC-I5-Mmo" secondAttribute="bottom" id="Ds3-kz-eiS"/>
+                    <constraint firstItem="EjJ-Tp-ZsM" firstAttribute="leading" secondItem="TF0-ya-hL9" secondAttribute="trailing" id="FZ5-rj-Zra"/>
+                    <constraint firstItem="FyC-I5-Mmo" firstAttribute="leading" secondItem="EjJ-Tp-ZsM" secondAttribute="trailing" id="HXq-Qx-Nxg"/>
+                    <constraint firstItem="T3G-nc-S8B" firstAttribute="leading" secondItem="Me6-JK-oQ6" secondAttribute="leading" id="MkG-5h-XTf"/>
+                    <constraint firstAttribute="bottom" secondItem="T3G-nc-S8B" secondAttribute="bottom" id="NZi-sy-cbp"/>
+                    <constraint firstAttribute="trailing" secondItem="FyC-I5-Mmo" secondAttribute="trailing" id="baX-tA-iPf"/>
+                    <constraint firstItem="EjJ-Tp-ZsM" firstAttribute="top" secondItem="Me6-JK-oQ6" secondAttribute="top" id="eNA-vb-seX"/>
+                    <constraint firstItem="T3G-nc-S8B" firstAttribute="width" secondItem="Me6-JK-oQ6" secondAttribute="width" multiplier="0.25" id="ebz-N7-O8V"/>
+                    <constraint firstItem="T3G-nc-S8B" firstAttribute="top" secondItem="Me6-JK-oQ6" secondAttribute="top" id="elI-H9-2N6"/>
+                    <constraint firstItem="TF0-ya-hL9" firstAttribute="width" secondItem="Me6-JK-oQ6" secondAttribute="width" multiplier="0.25" id="mGR-hm-5GE"/>
+                    <constraint firstAttribute="bottom" secondItem="TF0-ya-hL9" secondAttribute="bottom" id="pLQ-r8-64b"/>
+                    <constraint firstItem="FyC-I5-Mmo" firstAttribute="width" secondItem="Me6-JK-oQ6" secondAttribute="width" multiplier="0.25" id="pyV-n0-Ho1"/>
+                    <constraint firstItem="TF0-ya-hL9" firstAttribute="top" secondItem="Me6-JK-oQ6" secondAttribute="top" id="xOl-zf-sLC"/>
+                    <constraint firstItem="TF0-ya-hL9" firstAttribute="leading" secondItem="T3G-nc-S8B" secondAttribute="trailing" id="z2S-ns-ril"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-333.33333333333337" y="85.714285714285708"/>
+        </tableViewCell>
+    </objects>
+</document>
