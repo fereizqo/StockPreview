@@ -9,9 +9,8 @@ import UIKit
 
 class IntradayViewController: UIViewController {
 
-    @IBOutlet weak var symbolSearchBar: UISearchBar!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var symbolLabel: UILabel!
+    @IBOutlet weak var symbolButton: UIButton!
     @IBOutlet weak var sortingButton: UIButton!
     @IBOutlet weak var intradayTableView: UITableView!
     
