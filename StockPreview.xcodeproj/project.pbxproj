@@ -13,6 +13,11 @@
 		4968C4A7257B75FD00A1D5E2 /* IntradayData30Min.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4A6257B75FD00A1D5E2 /* IntradayData30Min.swift */; };
 		4968C4AF257B76CE00A1D5E2 /* IntradayData15Min.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4AE257B76CE00A1D5E2 /* IntradayData15Min.swift */; };
 		4968C4B4257B76D500A1D5E2 /* IntradayData60Min.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4B3257B76D500A1D5E2 /* IntradayData60Min.swift */; };
+		4968C4BB257B790500A1D5E2 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4BA257B790500A1D5E2 /* Resource.swift */; };
+		4968C4C0257B794700A1D5E2 /* GenericResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4BF257B794700A1D5E2 /* GenericResult.swift */; };
+		4968C4C5257B79BD00A1D5E2 /* URLRequest+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4C4257B79BD00A1D5E2 /* URLRequest+Resource.swift */; };
+		4968C4CA257B82C000A1D5E2 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4C9257B82C000A1D5E2 /* APIClient.swift */; };
+		4968C4CF257B842800A1D5E2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4CE257B842800A1D5E2 /* Repository.swift */; };
 		49BA1909257B198900CD7BEC /* DataSymbolViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */; };
 		49BA1916257B1B2F00CD7BEC /* IntradayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */; };
 		49BA191E257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */; };
@@ -52,6 +57,11 @@
 		4968C4A6257B75FD00A1D5E2 /* IntradayData30Min.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayData30Min.swift; sourceTree = "<group>"; };
 		4968C4AE257B76CE00A1D5E2 /* IntradayData15Min.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayData15Min.swift; sourceTree = "<group>"; };
 		4968C4B3257B76D500A1D5E2 /* IntradayData60Min.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayData60Min.swift; sourceTree = "<group>"; };
+		4968C4BA257B790500A1D5E2 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		4968C4BF257B794700A1D5E2 /* GenericResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResult.swift; sourceTree = "<group>"; };
+		4968C4C4257B79BD00A1D5E2 /* URLRequest+Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Resource.swift"; sourceTree = "<group>"; };
+		4968C4C9257B82C000A1D5E2 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		4968C4CE257B842800A1D5E2 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataSymbolViewCell.xib; sourceTree = "<group>"; };
 		49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewController.swift; sourceTree = "<group>"; };
 		49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSymbolTableViewCell.swift; sourceTree = "<group>"; };
@@ -98,6 +108,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4968C4B8257B778600A1D5E2 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4968C4B9257B779900A1D5E2 /* Networking */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		4968C4B9257B779900A1D5E2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4968C4BA257B790500A1D5E2 /* Resource.swift */,
+				4968C4BF257B794700A1D5E2 /* GenericResult.swift */,
+				4968C4C4257B79BD00A1D5E2 /* URLRequest+Resource.swift */,
+				4968C4C9257B82C000A1D5E2 /* APIClient.swift */,
+				4968C4CE257B842800A1D5E2 /* Repository.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		49BA18F6257B12B700CD7BEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +196,7 @@
 		49E0E20B2579D62600A18908 /* StockPreview */ = {
 			isa = PBXGroup;
 			children = (
+				4968C4B8257B778600A1D5E2 /* Helper */,
 				49BA18F6257B12B700CD7BEC /* Model */,
 				49BA18FA257B12C000CD7BEC /* View */,
 				49BA18FB257B12C500CD7BEC /* Controller */,
@@ -325,14 +356,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4968C4BB257B790500A1D5E2 /* Resource.swift in Sources */,
 				4968C475257B6AF600A1D5E2 /* SettingTableViewController.swift in Sources */,
+				4968C4C0257B794700A1D5E2 /* GenericResult.swift in Sources */,
+				4968C4CA257B82C000A1D5E2 /* APIClient.swift in Sources */,
 				49BA1933257B3F8A00CD7BEC /* DailyDataViewController.swift in Sources */,
+				4968C4C5257B79BD00A1D5E2 /* URLRequest+Resource.swift in Sources */,
 				4968C4B4257B76D500A1D5E2 /* IntradayData60Min.swift in Sources */,
 				49E0E20D2579D62600A18908 /* AppDelegate.swift in Sources */,
 				4968C49A257B72B400A1D5E2 /* IntradayData5Min.swift in Sources */,
 				4968C4AF257B76CE00A1D5E2 /* IntradayData15Min.swift in Sources */,
 				4968C4A2257B75B300A1D5E2 /* IntradayData1Min.swift in Sources */,
 				49BA191E257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift in Sources */,
+				4968C4CF257B842800A1D5E2 /* Repository.swift in Sources */,
 				49BA1916257B1B2F00CD7BEC /* IntradayViewController.swift in Sources */,
 				4968C4A7257B75FD00A1D5E2 /* IntradayData30Min.swift in Sources */,
 				49E0E20F2579D62600A18908 /* SceneDelegate.swift in Sources */,

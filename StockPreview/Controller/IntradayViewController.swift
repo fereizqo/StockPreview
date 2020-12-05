@@ -14,6 +14,8 @@ class IntradayViewController: UIViewController {
     @IBOutlet weak var sortingButton: UIButton!
     @IBOutlet weak var intradayTableView: UITableView!
     
+    let repository = Repository(apiClient: APIClient())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,6 +35,15 @@ class IntradayViewController: UIViewController {
         sortingButton.layer.cornerRadius = 5
         sortingButton.layer.borderWidth = 1
         sortingButton.layer.borderColor = UIColor.darkGray.cgColor
+        
+        repository.getIntradayData{ result in
+            switch result {
+            case .success(let items):
+                print("get intraday data: \(items.timeSeries1Min)")
+            case .failure(let error):
+                print("get error intraday data: \(error)")
+            }
+        }
     }
     
 }
