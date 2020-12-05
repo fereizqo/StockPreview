@@ -60,6 +60,12 @@
                     <constraint firstItem="TF0-ya-hL9" firstAttribute="leading" secondItem="T3G-nc-S8B" secondAttribute="trailing" id="z2S-ns-ril"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="highLabel" destination="EjJ-Tp-ZsM" id="XRT-jK-EUM"/>
+                <outlet property="lowLabel" destination="FyC-I5-Mmo" id="hay-cF-6zg"/>
+                <outlet property="openLabel" destination="TF0-ya-hL9" id="Hgz-q6-CNR"/>
+                <outlet property="timeLabel" destination="T3G-nc-S8B" id="ktr-Ef-md4"/>
+            </connections>
             <point key="canvasLocation" x="-333.33333333333337" y="85.714285714285708"/>
         </tableViewCell>
     </objects>

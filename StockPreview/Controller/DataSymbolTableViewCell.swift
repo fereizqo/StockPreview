@@ -8,8 +8,11 @@
 import UIKit
 
 class DataSymbolTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var dataLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var openLabel: UILabel!
+    @IBOutlet weak var highLabel: UILabel!
+    @IBOutlet weak var lowLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
