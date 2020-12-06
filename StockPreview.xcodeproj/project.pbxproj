@@ -20,6 +20,8 @@
 		4968C4CF257B842800A1D5E2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4CE257B842800A1D5E2 /* Repository.swift */; };
 		4968C4D5257B983F00A1D5E2 /* IntradayHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4D3257B983F00A1D5E2 /* IntradayHeaderTableViewCell.swift */; };
 		4968C4D6257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C4D4257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib */; };
+		4968C4DE257CC49700A1D5E2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4DD257CC49700A1D5E2 /* Extension.swift */; };
+		4968C4E3257CC59B00A1D5E2 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4E2257CC59B00A1D5E2 /* Spinner.swift */; };
 		49BA1909257B198900CD7BEC /* DataSymbolViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */; };
 		49BA1916257B1B2F00CD7BEC /* IntradayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */; };
 		49BA191E257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */; };
@@ -66,6 +68,8 @@
 		4968C4CE257B842800A1D5E2 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		4968C4D3257B983F00A1D5E2 /* IntradayHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		4968C4D4257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntradayHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		4968C4DD257CC49700A1D5E2 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		4968C4E2257CC59B00A1D5E2 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataSymbolViewCell.xib; sourceTree = "<group>"; };
 		49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewController.swift; sourceTree = "<group>"; };
 		49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSymbolTableViewCell.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				4968C4B9257B779900A1D5E2 /* Networking */,
+				4968C4DD257CC49700A1D5E2 /* Extension.swift */,
+				4968C4E2257CC59B00A1D5E2 /* Spinner.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -376,11 +382,13 @@
 				4968C4D5257B983F00A1D5E2 /* IntradayHeaderTableViewCell.swift in Sources */,
 				4968C4A2257B75B300A1D5E2 /* IntradayData1Min.swift in Sources */,
 				49BA191E257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift in Sources */,
+				4968C4DE257CC49700A1D5E2 /* Extension.swift in Sources */,
 				4968C4CF257B842800A1D5E2 /* Repository.swift in Sources */,
 				49BA1916257B1B2F00CD7BEC /* IntradayViewController.swift in Sources */,
 				4968C4A7257B75FD00A1D5E2 /* IntradayData30Min.swift in Sources */,
 				49E0E20F2579D62600A18908 /* SceneDelegate.swift in Sources */,
 				49BA1949257B40A800CD7BEC /* DailyData1TableViewCell.swift in Sources */,
+				4968C4E3257CC59B00A1D5E2 /* Spinner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

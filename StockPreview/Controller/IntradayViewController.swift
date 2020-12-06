@@ -21,6 +21,7 @@ class IntradayViewController: UIViewController {
     let pickerView = UIPickerView()
     var pickerToolBar = UIToolbar()
     var emptyStateLabel: UILabel?
+    let spinner = SpinnerViewController()
     
     private let interval = ["Date ↓","Date ↑","Open ↓","Open ↑","High ↓","High ↑","Low ↓","Low ↑"]
     private var choosenInterval: String?
@@ -69,6 +70,18 @@ class IntradayViewController: UIViewController {
         firstLogin()
     }
     
+    // Setup empty state
+    func setupEmptyState() {
+        emptyStateLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 50))
+        if let label = emptyStateLabel {
+            label.center = CGPoint(x: view.frame.size.width/2, y: view.frame.size.height/2)
+            label.textAlignment = .center
+            label.text = "No 'symbol' data is showed. \n Please 'input' first."
+            label.numberOfLines = 0
+            self.view.addSubview(label)
+        }
+    }
+    
     // Setup appearance either symbor setted or not
     func firstLogin() {
         // Selected symbol is set
@@ -94,20 +107,14 @@ class IntradayViewController: UIViewController {
         
     }
     
-    // Setup empty state
-    func setupEmptyState() {
-        emptyStateLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 50))
-        if let label = emptyStateLabel {
-            label.center = CGPoint(x: view.frame.size.width/2, y: view.frame.size.height/2)
-            label.textAlignment = .center
-            label.text = "No 'symbol' data is showed. \n Please 'input' first."
-            label.numberOfLines = 0
-            self.view.addSubview(label)
-        }
-    }
-    
     // Get request for intraday data
     func getIntradayData(symbol: String) {
+        // Show spinner
+        addChild(spinner)
+        spinner.view.frame = view.frame
+        view.addSubview(spinner.view)
+        spinner.didMove(toParent: self)
+        // Do request
         repository.getIntradayData1Min(symbol: "IBM"){ result in
             switch result {
             case .success(let items):
@@ -126,10 +133,24 @@ class IntradayViewController: UIViewController {
                 // Update tableview from main thread
                 DispatchQueue.main.async {
                     self.intradayTableView.reloadData()
+                    
+                    // Remove spinner
+                    self.spinner.willMove(toParent: nil)
+                    self.spinner.view.removeFromSuperview()
+                    self.spinner.removeFromParent()
                 }
 
             case .failure(let error):
                 print("get error intraday data: \(error)")
+                DispatchQueue.main.async {
+                    self.showAlert(alertText: "Connection Error", alertMessage: "Failed to get data. \n Error: \(error).")
+                    self.intradayTableView.isHidden = true
+                    
+                    // Remove spinner
+                    self.spinner.willMove(toParent: nil)
+                    self.spinner.view.removeFromSuperview()
+                    self.spinner.removeFromParent()
+                }
             }
         }
     }
