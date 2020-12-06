@@ -14,7 +14,7 @@ class IntradayViewController: UIViewController {
     @IBOutlet weak var sortingButton: UIButton!
     @IBOutlet weak var intradayTableView: UITableView!
     
-    let repository = Repository(apiClient: APIClient())
+    private let repository = Repository(apiClient: APIClient())
     var timeSeriesArray1Min: [(Date, TimeSeries1Min)] = []
     var timeSeriesDict1Min: [Date: TimeSeries1Min] = [:]
     

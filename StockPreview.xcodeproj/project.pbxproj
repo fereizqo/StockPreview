@@ -22,6 +22,9 @@
 		4968C4D6257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C4D4257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib */; };
 		4968C4DE257CC49700A1D5E2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4DD257CC49700A1D5E2 /* Extension.swift */; };
 		4968C4E3257CC59B00A1D5E2 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4E2257CC59B00A1D5E2 /* Spinner.swift */; };
+		4968C4E8257CCADA00A1D5E2 /* DailyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4E7257CCADA00A1D5E2 /* DailyData.swift */; };
+		4968C4EE257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4EC257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.swift */; };
+		4968C4EF257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C4ED257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.xib */; };
 		49BA1909257B198900CD7BEC /* DataSymbolViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */; };
 		49BA1916257B1B2F00CD7BEC /* IntradayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */; };
 		49BA191E257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */; };
@@ -70,6 +73,9 @@
 		4968C4D4257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntradayHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		4968C4DD257CC49700A1D5E2 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		4968C4E2257CC59B00A1D5E2 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		4968C4E7257CCADA00A1D5E2 /* DailyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyData.swift; sourceTree = "<group>"; };
+		4968C4EC257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyData1HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		4968C4ED257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyData1HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataSymbolViewCell.xib; sourceTree = "<group>"; };
 		49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewController.swift; sourceTree = "<group>"; };
 		49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSymbolTableViewCell.swift; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 				4968C4AE257B76CE00A1D5E2 /* IntradayData15Min.swift */,
 				4968C4A6257B75FD00A1D5E2 /* IntradayData30Min.swift */,
 				4968C4B3257B76D500A1D5E2 /* IntradayData60Min.swift */,
+				4968C4E7257CCADA00A1D5E2 /* DailyData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +165,7 @@
 				49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */,
 				4968C4D4257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib */,
 				49BA1948257B40A800CD7BEC /* DailyData1TableViewCell.xib */,
+				4968C4ED257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -171,6 +179,7 @@
 				49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */,
 				49BA1932257B3F8A00CD7BEC /* DailyDataViewController.swift */,
 				49BA1947257B40A800CD7BEC /* DailyData1TableViewCell.swift */,
+				4968C4EC257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.swift */,
 				4968C474257B6AF600A1D5E2 /* SettingTableViewController.swift */,
 			);
 			path = Controller;
@@ -342,6 +351,7 @@
 				49E0E2192579D62700A18908 /* LaunchScreen.storyboard in Resources */,
 				49E0E2162579D62700A18908 /* Assets.xcassets in Resources */,
 				49BA1909257B198900CD7BEC /* DataSymbolViewCell.xib in Resources */,
+				4968C4EF257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.xib in Resources */,
 				49E0E2142579D62600A18908 /* Main.storyboard in Resources */,
 				4968C4D6257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib in Resources */,
 				49BA194A257B40A800CD7BEC /* DailyData1TableViewCell.xib in Resources */,
@@ -374,12 +384,14 @@
 				4968C4C0257B794700A1D5E2 /* GenericResult.swift in Sources */,
 				4968C4CA257B82C000A1D5E2 /* APIClient.swift in Sources */,
 				49BA1933257B3F8A00CD7BEC /* DailyDataViewController.swift in Sources */,
+				4968C4E8257CCADA00A1D5E2 /* DailyData.swift in Sources */,
 				4968C4C5257B79BD00A1D5E2 /* URLRequest+Resource.swift in Sources */,
 				4968C4B4257B76D500A1D5E2 /* IntradayData60Min.swift in Sources */,
 				49E0E20D2579D62600A18908 /* AppDelegate.swift in Sources */,
 				4968C49A257B72B400A1D5E2 /* IntradayData5Min.swift in Sources */,
 				4968C4AF257B76CE00A1D5E2 /* IntradayData15Min.swift in Sources */,
 				4968C4D5257B983F00A1D5E2 /* IntradayHeaderTableViewCell.swift in Sources */,
+				4968C4EE257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.swift in Sources */,
 				4968C4A2257B75B300A1D5E2 /* IntradayData1Min.swift in Sources */,
 				49BA191E257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift in Sources */,
 				4968C4DE257CC49700A1D5E2 /* Extension.swift in Sources */,

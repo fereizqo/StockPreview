@@ -16,7 +16,7 @@ class Repository {
     
     // Getting Intraday Data
     func getIntradayData1Min(symbol: String, completion: @escaping ((Result<IntradayData1Min>) -> Void)) {
-        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)&interval=1min&apikey=LAOWH18I5MY13PFY")!)
+        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)&outputsize=full&interval=1min&apikey=LAOWH18I5MY13PFY")!)
         
         apiClient.load(resource) { (result) in
             switch result {
@@ -35,7 +35,7 @@ class Repository {
     }
     
     func getIntradayData5Min(_ completion: @escaping ((Result<IntradayData5Min>) -> Void)) {
-        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=1min&apikey=LAOWH18I5MY13PFY")!)
+        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&outputsize=full&interval=1min&apikey=LAOWH18I5MY13PFY")!)
         
         apiClient.load(resource) { (result) in
             switch result {
@@ -52,5 +52,27 @@ class Repository {
             }
         }
     }
+    
+    // Get Daily Data
+    func getDailyData(symbol: String, completion: @escaping ((Result<DailyData>) -> Void)) {
+        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=\(symbol)&outputsize=compact&apikey=LAOWH18I5MY13PFY")!)
+        
+        
+        apiClient.load(resource) { (result) in
+            switch result {
+            case .success(let data):
+                do {
+                    let items = try JSONDecoder().decode(DailyData.self, from: data)
+                    completion(.success(items))
+                } catch {
+                    completion(.failure(error))
+                }
+             
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
     
 }

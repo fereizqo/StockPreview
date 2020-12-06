@@ -1,18 +1,14 @@
 //
-//  DailyData1TableViewCell.swift
+//  DailyData1HeaderTableViewCell.swift
 //  StockPreview
 //
-//  Created by Fereizqo Sulaiman on 05/12/20.
+//  Created by Fereizqo Sulaiman on 06/12/20.
 //
 
 import UIKit
 
-class DailyData1TableViewCell: UITableViewCell {
+class DailyData1HeaderTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var open1Label: UILabel!
-    @IBOutlet weak var low1Label: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

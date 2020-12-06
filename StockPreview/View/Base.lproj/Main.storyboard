@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l9b-mZ-tRl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PF1-vw-mLu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -25,7 +25,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yle-9Q-xAk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-935" y="589"/>
+            <point key="canvasLocation" x="-893" y="824"/>
         </scene>
         <!--Intraday-->
         <scene sceneID="8NX-e4-aSJ">
@@ -140,7 +140,6 @@
         <!--Daily Adjusted-->
         <scene sceneID="jCj-ph-MHv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XJF-pC-xFD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="PF1-vw-mLu" customClass="DailyDataViewController" customModule="StockPreview" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CXe-SZ-ZSQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -186,6 +185,7 @@
                         <outlet property="titleTableLabel" destination="S7n-vU-IIu" id="zI1-GW-Wbj"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XJF-pC-xFD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="934.78260869565224" y="823.66071428571422"/>
         </scene>
