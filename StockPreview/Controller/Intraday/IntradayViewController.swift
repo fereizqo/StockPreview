@@ -114,6 +114,11 @@ class IntradayViewController: UIViewController {
         spinner.view.frame = view.frame
         view.addSubview(spinner.view)
         spinner.didMove(toParent: self)
+        
+        // Reset data
+        timeSeriesDict1Min.removeAll()
+        timeSeriesArray1Min.removeAll()
+        
         // Do request
         repository.getIntradayData1Min(symbol: "IBM"){ result in
             switch result {
