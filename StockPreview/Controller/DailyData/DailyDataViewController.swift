@@ -72,7 +72,7 @@ class DailyDataViewController: UIViewController {
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
-        // Confrim increasing number
+        // Confirm increasing number
         if Int(sender.value) >= dailyDataCount {
             // Creating alert
             let alert = UIAlertController(title: "Input Stock Symbol", message: "Please input stock symbol to get it's information. \n (example: IDX)", preferredStyle: .alert)
@@ -86,7 +86,6 @@ class DailyDataViewController: UIViewController {
             let okeAction = UIAlertAction(title: "Oke", style: .default) { alertAction in
                 // Confirm adding symbol
                 self.dailyDataCount = Int(sender.value)
-                print(Int(sender.value))
                 self.conditionBasedOnSymbolCount()
                 
                 // Getting text from textfield
@@ -118,11 +117,10 @@ class DailyDataViewController: UIViewController {
             let okeAction = UIAlertAction(title: "Yes", style: .default) { alertAction in
                 self.dailyDataCount = Int(sender.value)
                 self.conditionBasedOnSymbolCount()
-                print(Int(sender.value))
                 self.dailyDataSymbolArray.removeLast()
                 
                 // Remove array data
-                self.dailyDataArray.removeAll()
+                self.conditionOfDecreasingSymbol()
                 self.dailyDataTableView.reloadData()
             }
             // Creating action - cancel
@@ -143,14 +141,30 @@ class DailyDataViewController: UIViewController {
     func conditionOfAddingSymbol(symbol: String) {
         switch dailyDataCount {
         case 1:
-            symbol1Label.text = dailyDataSymbolArray[dailyDataCount-1]
+            symbol1Label.text = "• Data 1 : \(dailyDataSymbolArray[dailyDataCount-1])"
             getDailyData(symbol: symbol)
         case 2:
-            symbol2Label.text = dailyDataSymbolArray[dailyDataCount-1]
+            symbol2Label.text = "• Data 2 : \(dailyDataSymbolArray[dailyDataCount-1])"
             getDailyData(symbol: symbol)
         case 3:
-            symbol3Label.text = dailyDataSymbolArray[dailyDataCount-1]
+            symbol3Label.text = "• Data 3 : \(dailyDataSymbolArray[dailyDataCount-1])"
             getDailyData(symbol: symbol)
+        default:
+            print("")
+        }
+    }
+    
+    // Condition when decreasing symbol
+    func conditionOfDecreasingSymbol() {
+        switch dailyDataCount {
+        case 0:
+            dataTimeSeries1.removeAll()
+        case 1:
+            dataTimeSeries2.removeAll()
+            dataTimeSeriesCompare2.removeAll()
+        case 2:
+            dataTimeSeries3.removeAll()
+            dataTimeSeriesCompare3.removeAll()
         default:
             print("")
         }
@@ -222,11 +236,6 @@ class DailyDataViewController: UIViewController {
                     self.dailyDataDict.updateValue(value, forKey: date)
                 }
                 
-                // Dictionary to Array
-                for (key, value) in self.dailyDataDict {
-                    self.dailyDataArray.append((key,value))
-                }
-                
                 // Match to data count
                 switch self.dailyDataCount {
                 case 1:
@@ -248,7 +257,6 @@ class DailyDataViewController: UIViewController {
                             }
                         }
                     }
-                    print("data compare 2: \(self.dataTimeSeriesCompare2)")
                     
                 case 3:
                     for (key, value) in self.dailyDataDict {
@@ -264,17 +272,14 @@ class DailyDataViewController: UIViewController {
                             }
                         }
                     }
-                    print("data compare 3: \(self.dataTimeSeriesCompare3)")
                     
                 default:
                     print("")
                 }
-                
 
                 // Update tableview from main thread
                 DispatchQueue.main.async {
                     self.dailyDataTableView.reloadData()
-//                    print("daily data array: \(self.dailyDataArray)")
                 }
                 
             case .failure(let error):
