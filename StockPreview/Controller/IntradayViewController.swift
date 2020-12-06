@@ -15,16 +15,33 @@ class IntradayViewController: UIViewController {
     @IBOutlet weak var intradayTableView: UITableView!
     
     let repository = Repository(apiClient: APIClient())
-    var timeSeriesArray1Min: [(String, TimeSeries1Min)] = []
-    var timeSeriesDict1Min: [String: TimeSeries1Min] = [:]
+    var timeSeriesArray1Min: [(Date, TimeSeries1Min)] = []
+    var timeSeriesDict1Min: [Date: TimeSeries1Min] = [:]
     
     let pickerView = UIPickerView()
     var pickerToolBar = UIToolbar()
+    var emptyStateLabel: UILabel?
     
-    private let interval = ["Open ↓","Open ↑","High ↓","High ↑","Low ↓","Low ↑"]
+    private let interval = ["Date ↓","Date ↑","Open ↓","Open ↑","High ↓","High ↑","Low ↓","Low ↑"]
     private var choosenInterval: String?
     
-    var emptyStateLabel: UILabel?
+    lazy var dateFormatterGet: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter
+     }()
+    
+    lazy var dateFormatterPrint: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm d-MM-yy"
+        return formatter
+     }()
+    
+    lazy var currentDateFormatterPrint: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMMM yyyy"
+        return formatter
+     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +63,7 @@ class IntradayViewController: UIViewController {
         sortingButton.layer.cornerRadius = 5
         sortingButton.layer.borderWidth = 1
         sortingButton.layer.borderColor = UIColor.darkGray.cgColor
+        dateLabel.text = currentDateFormatterPrint.string(from: Date())
         
         // Checking symbol are selected or not
         firstLogin()
@@ -94,8 +112,11 @@ class IntradayViewController: UIViewController {
             switch result {
             case .success(let items):
                 
-                // Store dict data
-                self.timeSeriesDict1Min = items.timeSeries1Min
+                // Store new format dict data
+                for (key, value) in items.timeSeries1Min {
+                    guard let date = self.dateFormatterGet.date(from: key) else { return }
+                    self.timeSeriesDict1Min.updateValue(value, forKey: date)
+                }
                 
                 // Dictionary to Array
                 for (key, value) in self.timeSeriesDict1Min {
@@ -187,6 +208,10 @@ class IntradayViewController: UIViewController {
                     for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.value.the3Low < $1.value.the3Low }) {
                         self.timeSeriesArray1Min.append((key,value))
                     }
+                } else if param == "Date" {
+                    for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.key < $1.key }) {
+                        self.timeSeriesArray1Min.append((key,value))
+                    }
                 }
             }
             
@@ -203,6 +228,10 @@ class IntradayViewController: UIViewController {
                     
                 } else if param == "Low" {
                     for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.value.the3Low > $1.value.the3Low }) {
+                        self.timeSeriesArray1Min.append((key,value))
+                    }
+                } else if param == "Date" {
+                    for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.key > $1.key }) {
                         self.timeSeriesArray1Min.append((key,value))
                     }
                 }
@@ -229,7 +258,8 @@ extension IntradayViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! DataSymbolTableViewCell
         let (key, value) = timeSeriesArray1Min[indexPath.row]
-        cell.timeLabel.text = key
+        
+        cell.timeLabel.text = dateFormatterPrint.string(from: key)
         cell.openLabel.text = value.the1Open
         cell.highLabel.text = value.the2High
         cell.lowLabel.text = value.the3Low
