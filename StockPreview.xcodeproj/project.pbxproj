@@ -25,6 +25,14 @@
 		4968C4E8257CCADA00A1D5E2 /* DailyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4E7257CCADA00A1D5E2 /* DailyData.swift */; };
 		4968C4EE257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4EC257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.swift */; };
 		4968C4EF257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C4ED257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.xib */; };
+		4968C501257D127800A1D5E2 /* DailyData2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4FF257D127800A1D5E2 /* DailyData2TableViewCell.swift */; };
+		4968C502257D127800A1D5E2 /* DailyData2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C500257D127800A1D5E2 /* DailyData2TableViewCell.xib */; };
+		4968C508257D128500A1D5E2 /* DailyData3TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C506257D128500A1D5E2 /* DailyData3TableViewCell.swift */; };
+		4968C509257D128500A1D5E2 /* DailyData3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C507257D128500A1D5E2 /* DailyData3TableViewCell.xib */; };
+		4968C50F257D12A400A1D5E2 /* DailyData2HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C50D257D12A400A1D5E2 /* DailyData2HeaderTableViewCell.swift */; };
+		4968C510257D12A400A1D5E2 /* DailyData2HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C50E257D12A400A1D5E2 /* DailyData2HeaderTableViewCell.xib */; };
+		4968C519257D12AF00A1D5E2 /* DailyData3HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C517257D12AF00A1D5E2 /* DailyData3HeaderTableViewCell.swift */; };
+		4968C51A257D12AF00A1D5E2 /* DailyData3HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4968C518257D12AF00A1D5E2 /* DailyData3HeaderTableViewCell.xib */; };
 		49BA1909257B198900CD7BEC /* DataSymbolViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */; };
 		49BA1916257B1B2F00CD7BEC /* IntradayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */; };
 		49BA191E257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */; };
@@ -76,6 +84,14 @@
 		4968C4E7257CCADA00A1D5E2 /* DailyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyData.swift; sourceTree = "<group>"; };
 		4968C4EC257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyData1HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		4968C4ED257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyData1HeaderTableViewCell.xib; sourceTree = "<group>"; };
+		4968C4FF257D127800A1D5E2 /* DailyData2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyData2TableViewCell.swift; sourceTree = "<group>"; };
+		4968C500257D127800A1D5E2 /* DailyData2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyData2TableViewCell.xib; sourceTree = "<group>"; };
+		4968C506257D128500A1D5E2 /* DailyData3TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyData3TableViewCell.swift; sourceTree = "<group>"; };
+		4968C507257D128500A1D5E2 /* DailyData3TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyData3TableViewCell.xib; sourceTree = "<group>"; };
+		4968C50D257D12A400A1D5E2 /* DailyData2HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyData2HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		4968C50E257D12A400A1D5E2 /* DailyData2HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyData2HeaderTableViewCell.xib; sourceTree = "<group>"; };
+		4968C517257D12AF00A1D5E2 /* DailyData3HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyData3HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		4968C518257D12AF00A1D5E2 /* DailyData3HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyData3HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataSymbolViewCell.xib; sourceTree = "<group>"; };
 		49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewController.swift; sourceTree = "<group>"; };
 		49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSymbolTableViewCell.swift; sourceTree = "<group>"; };
@@ -149,7 +165,11 @@
 			children = (
 				49BA1932257B3F8A00CD7BEC /* DailyDataViewController.swift */,
 				49BA1947257B40A800CD7BEC /* DailyData1TableViewCell.swift */,
+				4968C4FF257D127800A1D5E2 /* DailyData2TableViewCell.swift */,
+				4968C506257D128500A1D5E2 /* DailyData3TableViewCell.swift */,
 				4968C4EC257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.swift */,
+				4968C50D257D12A400A1D5E2 /* DailyData2HeaderTableViewCell.swift */,
+				4968C517257D12AF00A1D5E2 /* DailyData3HeaderTableViewCell.swift */,
 			);
 			path = DailyData;
 			sourceTree = "<group>";
@@ -185,7 +205,11 @@
 				49BA1908257B198900CD7BEC /* DataSymbolViewCell.xib */,
 				4968C4D4257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib */,
 				49BA1948257B40A800CD7BEC /* DailyData1TableViewCell.xib */,
+				4968C500257D127800A1D5E2 /* DailyData2TableViewCell.xib */,
+				4968C507257D128500A1D5E2 /* DailyData3TableViewCell.xib */,
 				4968C4ED257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.xib */,
+				4968C50E257D12A400A1D5E2 /* DailyData2HeaderTableViewCell.xib */,
+				4968C518257D12AF00A1D5E2 /* DailyData3HeaderTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -370,7 +394,11 @@
 				4968C4EF257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.xib in Resources */,
 				49E0E2142579D62600A18908 /* Main.storyboard in Resources */,
 				4968C4D6257B983F00A1D5E2 /* IntradayHeaderTableViewCell.xib in Resources */,
+				4968C509257D128500A1D5E2 /* DailyData3TableViewCell.xib in Resources */,
+				4968C51A257D12AF00A1D5E2 /* DailyData3HeaderTableViewCell.xib in Resources */,
+				4968C502257D127800A1D5E2 /* DailyData2TableViewCell.xib in Resources */,
 				49BA194A257B40A800CD7BEC /* DailyData1TableViewCell.xib in Resources */,
+				4968C510257D12A400A1D5E2 /* DailyData2HeaderTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,9 +440,13 @@
 				49BA191E257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift in Sources */,
 				4968C4DE257CC49700A1D5E2 /* Extension.swift in Sources */,
 				4968C4CF257B842800A1D5E2 /* Repository.swift in Sources */,
+				4968C50F257D12A400A1D5E2 /* DailyData2HeaderTableViewCell.swift in Sources */,
+				4968C519257D12AF00A1D5E2 /* DailyData3HeaderTableViewCell.swift in Sources */,
 				49BA1916257B1B2F00CD7BEC /* IntradayViewController.swift in Sources */,
 				4968C4A7257B75FD00A1D5E2 /* IntradayData30Min.swift in Sources */,
+				4968C508257D128500A1D5E2 /* DailyData3TableViewCell.swift in Sources */,
 				49E0E20F2579D62600A18908 /* SceneDelegate.swift in Sources */,
+				4968C501257D127800A1D5E2 /* DailyData2TableViewCell.swift in Sources */,
 				49BA1949257B40A800CD7BEC /* DailyData1TableViewCell.swift in Sources */,
 				4968C4E3257CC59B00A1D5E2 /* Spinner.swift in Sources */,
 			);

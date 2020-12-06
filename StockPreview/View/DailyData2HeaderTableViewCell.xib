@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="BDL-bb-y9m" customClass="DailyData2HeaderTableViewCell" customModule="StockPreview" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BDL-bb-y9m" id="DcX-Sr-WT2">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6YE-7j-u3O">
+                        <rect key="frame" x="0.0" y="0.0" width="64" height="44"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTs-03-Cks">
+                        <rect key="frame" x="64" y="0.0" width="64" height="44"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsl-b3-xgl">
+                        <rect key="frame" x="128" y="0.0" width="64" height="44"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sch-FP-uow">
+                        <rect key="frame" x="192" y="0.0" width="64" height="44"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1K0-cZ-kuH">
+                        <rect key="frame" x="256" y="0.0" width="64" height="44"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Sch-FP-uow" firstAttribute="leading" secondItem="Wsl-b3-xgl" secondAttribute="trailing" id="13J-IT-fqC"/>
+                    <constraint firstItem="BTs-03-Cks" firstAttribute="leading" secondItem="6YE-7j-u3O" secondAttribute="trailing" id="1EA-fF-d0r"/>
+                    <constraint firstItem="Sch-FP-uow" firstAttribute="width" secondItem="DcX-Sr-WT2" secondAttribute="width" multiplier="0.2" id="1Ex-r2-dle"/>
+                    <constraint firstItem="BTs-03-Cks" firstAttribute="top" secondItem="DcX-Sr-WT2" secondAttribute="top" id="2P3-ne-3gd"/>
+                    <constraint firstItem="6YE-7j-u3O" firstAttribute="leading" secondItem="DcX-Sr-WT2" secondAttribute="leading" id="5AJ-f8-nGJ"/>
+                    <constraint firstItem="Wsl-b3-xgl" firstAttribute="width" secondItem="DcX-Sr-WT2" secondAttribute="width" multiplier="0.2" id="AYt-Ym-Sf8"/>
+                    <constraint firstItem="Sch-FP-uow" firstAttribute="top" secondItem="DcX-Sr-WT2" secondAttribute="top" id="ITT-SC-fAZ"/>
+                    <constraint firstItem="1K0-cZ-kuH" firstAttribute="leading" secondItem="Sch-FP-uow" secondAttribute="trailing" id="LdY-hT-BvS"/>
+                    <constraint firstAttribute="bottom" secondItem="6YE-7j-u3O" secondAttribute="bottom" id="O4V-x2-ik7"/>
+                    <constraint firstItem="1K0-cZ-kuH" firstAttribute="width" secondItem="DcX-Sr-WT2" secondAttribute="width" multiplier="0.2" id="Spi-0e-Gqd"/>
+                    <constraint firstItem="BTs-03-Cks" firstAttribute="width" secondItem="DcX-Sr-WT2" secondAttribute="width" multiplier="0.2" id="VRY-PB-pkZ"/>
+                    <constraint firstItem="6YE-7j-u3O" firstAttribute="width" secondItem="DcX-Sr-WT2" secondAttribute="width" multiplier="0.2" id="WZF-nJ-ade"/>
+                    <constraint firstItem="Wsl-b3-xgl" firstAttribute="leading" secondItem="BTs-03-Cks" secondAttribute="trailing" id="aAS-JW-zxj"/>
+                    <constraint firstItem="1K0-cZ-kuH" firstAttribute="top" secondItem="DcX-Sr-WT2" secondAttribute="top" id="bNm-cJ-oP5"/>
+                    <constraint firstAttribute="bottom" secondItem="BTs-03-Cks" secondAttribute="bottom" id="dob-Ux-bCS"/>
+                    <constraint firstAttribute="bottom" secondItem="Sch-FP-uow" secondAttribute="bottom" id="pKb-wn-dQV"/>
+                    <constraint firstAttribute="bottom" secondItem="1K0-cZ-kuH" secondAttribute="bottom" id="sqp-If-sGz"/>
+                    <constraint firstAttribute="bottom" secondItem="Wsl-b3-xgl" secondAttribute="bottom" id="tc5-aB-Iy1"/>
+                    <constraint firstItem="6YE-7j-u3O" firstAttribute="top" secondItem="DcX-Sr-WT2" secondAttribute="top" id="yTS-Mj-FJ5"/>
+                    <constraint firstItem="Wsl-b3-xgl" firstAttribute="top" secondItem="DcX-Sr-WT2" secondAttribute="top" id="zQV-G5-Gnl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="tJg-7e-h73"/>
+            <point key="canvasLocation" x="54" y="135"/>
+        </tableViewCell>
+    </objects>
+</document>

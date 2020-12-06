@@ -52,8 +52,12 @@ class DailyDataViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // Register xib cell
-        let cellNib = UINib(nibName: "DailyData1TableViewCell", bundle: nil)
-        dailyDataTableView.register(cellNib, forCellReuseIdentifier: "dailyData1Cell")
+        let cellNib1 = UINib(nibName: "DailyData1TableViewCell", bundle: nil)
+        let cellNib2 = UINib(nibName: "DailyData2TableViewCell", bundle: nil)
+        let cellNib3 = UINib(nibName: "DailyData3TableViewCell", bundle: nil)
+        dailyDataTableView.register(cellNib1, forCellReuseIdentifier: "dailyData1Cell")
+        dailyDataTableView.register(cellNib2, forCellReuseIdentifier: "dailyData2Cell")
+        dailyDataTableView.register(cellNib3, forCellReuseIdentifier: "dailyData3Cell")
         
         dailyDataTableView.delegate = self
         dailyDataTableView.dataSource = self
@@ -283,24 +287,59 @@ class DailyDataViewController: UIViewController {
 extension DailyDataViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dailyDataArray.count
+        return dataTimeSeries1.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = Bundle.main.loadNibNamed("DailyData1HeaderTableViewCell", owner: self, options: nil)?.first as! DailyData1HeaderTableViewCell
+        let headerView1 = Bundle.main.loadNibNamed("DailyData1HeaderTableViewCell", owner: self, options: nil)?.first as! DailyData1HeaderTableViewCell
+        let headerView2 = Bundle.main.loadNibNamed("DailyData2HeaderTableViewCell", owner: self, options: nil)?.first as! DailyData2HeaderTableViewCell
+        let headerView3 = Bundle.main.loadNibNamed("DailyData3HeaderTableViewCell", owner: self, options: nil)?.first as! DailyData3HeaderTableViewCell
         
-        return headerView
+        switch dailyDataCount {
+        case 1:
+            return headerView1
+        case 2:
+            return headerView2
+        case 3:
+            return headerView3
+        default:
+            return headerView1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dailyData1Cell") as! DailyData1TableViewCell
-        let (key, value) = dailyDataArray[indexPath.row]
+        let cell1 = tableView.dequeueReusableCell(withIdentifier: "dailyData1Cell") as! DailyData1TableViewCell
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "dailyData2Cell") as! DailyData2TableViewCell
+        let cell3 = tableView.dequeueReusableCell(withIdentifier: "dailyData3Cell") as! DailyData3TableViewCell
         
-        cell.dateLabel.text = dateFormatterPrint.string(from: key)
-        cell.open1Label.text = value.the1Open
-        cell.low1Label.text = value.the3Low
-        
-        return cell
+        switch dailyDataCount {
+        case 1:
+            let data1 = dataTimeSeries1[indexPath.row]
+            cell1.dateLabel.text = dateFormatterPrint.string(from: data1.date)
+            cell1.open1Label.text = data1.open
+            cell1.low1Label.text = data1.low
+            return cell1
+        case 2:
+            let data12 = dataTimeSeriesCompare2[indexPath.row]
+            cell2.dateLabel.text = dateFormatterPrint.string(from: data12.date)
+            cell2.open1Label.text = data12.open1
+            cell2.low1Label.text = data12.low1
+            cell2.open2Label.text = data12.open2
+            cell2.low2Label.text = data12.low2
+            return cell2
+        case 3:
+            let data123 = dataTimeSeriesCompare3[indexPath.row]
+            cell3.dateLabel.text = dateFormatterPrint.string(from: data123.date)
+            cell3.open1Label.text = data123.open1
+            cell3.low1Label.text = data123.low1
+            cell3.open2Label.text = data123.open2
+            cell3.low2Label.text = data123.low2
+            cell3.open3Label.text = data123.open3
+            cell3.low3Label.text = data123.low3
+            return cell3
+        default:
+            return cell1
+        }
     }
     
     
