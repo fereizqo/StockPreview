@@ -144,6 +144,26 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		4968C4F7257CD4ED00A1D5E2 /* DailyData */ = {
+			isa = PBXGroup;
+			children = (
+				49BA1932257B3F8A00CD7BEC /* DailyDataViewController.swift */,
+				49BA1947257B40A800CD7BEC /* DailyData1TableViewCell.swift */,
+				4968C4EC257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.swift */,
+			);
+			path = DailyData;
+			sourceTree = "<group>";
+		};
+		4968C4FB257CD4F600A1D5E2 /* Intraday */ = {
+			isa = PBXGroup;
+			children = (
+				49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */,
+				4968C4D3257B983F00A1D5E2 /* IntradayHeaderTableViewCell.swift */,
+				49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */,
+			);
+			path = Intraday;
+			sourceTree = "<group>";
+		};
 		49BA18F6257B12B700CD7BEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,12 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				49BA18FC257B12F100CD7BEC /* AppConfig */,
-				49BA1915257B1B2F00CD7BEC /* IntradayViewController.swift */,
-				4968C4D3257B983F00A1D5E2 /* IntradayHeaderTableViewCell.swift */,
-				49BA191D257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift */,
-				49BA1932257B3F8A00CD7BEC /* DailyDataViewController.swift */,
-				49BA1947257B40A800CD7BEC /* DailyData1TableViewCell.swift */,
-				4968C4EC257CD20D00A1D5E2 /* DailyData1HeaderTableViewCell.swift */,
+				4968C4FB257CD4F600A1D5E2 /* Intraday */,
+				4968C4F7257CD4ED00A1D5E2 /* DailyData */,
 				4968C474257B6AF600A1D5E2 /* SettingTableViewController.swift */,
 			);
 			path = Controller;
