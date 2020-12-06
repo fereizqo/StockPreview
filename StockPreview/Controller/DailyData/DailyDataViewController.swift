@@ -223,9 +223,16 @@ class DailyDataViewController: UIViewController {
     
     // Get daily data request
     func getDailyData(symbol: String) {
+        // Show spinner
+        addChild(spinner)
+        spinner.view.frame = view.frame
+        view.addSubview(spinner.view)
+        spinner.didMove(toParent: self)
+        
         // Reset dailydatadict
         dailyDataDict.removeAll()
         
+        // Do request
         repository.getDailyData(symbol: symbol) { result in
             switch result {
             case .success(let items):
@@ -280,10 +287,20 @@ class DailyDataViewController: UIViewController {
                 // Update tableview from main thread
                 DispatchQueue.main.async {
                     self.dailyDataTableView.reloadData()
+                    
+                    // Remove spinner
+                    self.spinner.willMove(toParent: nil)
+                    self.spinner.view.removeFromSuperview()
+                    self.spinner.removeFromParent()
                 }
                 
             case .failure(let error):
                 print("get error daily data: \(error)")
+                
+                // Remove spinner
+                self.spinner.willMove(toParent: nil)
+                self.spinner.view.removeFromSuperview()
+                self.spinner.removeFromParent()
             }
         }
     }
