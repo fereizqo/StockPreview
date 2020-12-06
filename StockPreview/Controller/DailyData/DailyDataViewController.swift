@@ -46,6 +46,12 @@ class DailyDataViewController: UIViewController {
         return formatter
      }()
     
+    lazy var dateFormatterShortPrint: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yy"
+        return formatter
+     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -246,16 +252,23 @@ class DailyDataViewController: UIViewController {
                 // Match to data count
                 switch self.dailyDataCount {
                 case 1:
+                    // Get value for symbol 1
                     for (key, value) in self.dailyDataDict {
                         let testDaily = DataTimeSeriesDaily(date: key, open: value.the1Open, low: value.the3Low)
                         self.dataTimeSeries1.append(testDaily)
                     }
+                    
+                    // Sorting by date
+                    self.dataTimeSeries1 = self.dataTimeSeries1.sorted{ $0.date > $1.date}
+                
                 case 2:
+                    // Get value for symbol 2
                     for (key, value) in self.dailyDataDict {
                         let testDaily = DataTimeSeriesDaily(date: key, open: value.the1Open, low: value.the3Low)
                         self.dataTimeSeries2.append(testDaily)
                     }
                     
+                    // Get value between symbol 1 and symbol 2
                     for data1 in self.dataTimeSeries1 {
                         for data2 in self.dataTimeSeries2 {
                             if data1.date == data2.date {
@@ -265,12 +278,17 @@ class DailyDataViewController: UIViewController {
                         }
                     }
                     
+                    // Sorting by date
+                    self.dataTimeSeriesCompare2 = self.dataTimeSeriesCompare2.sorted{ $0.date > $1.date}
+                    
                 case 3:
+                    // Get value for symbol 3
                     for (key, value) in self.dailyDataDict {
                         let testDaily = DataTimeSeriesDaily(date: key, open: value.the1Open, low: value.the3Low)
                         self.dataTimeSeries3.append(testDaily)
                     }
                     
+                    // Get value between symbol 12 and symbol 3
                     for data12 in self.dataTimeSeriesCompare2 {
                         for data3 in self.dataTimeSeries3 {
                             if data12.date == data3.date {
@@ -279,6 +297,9 @@ class DailyDataViewController: UIViewController {
                             }
                         }
                     }
+                    
+                    // Sorting by date
+                    self.dataTimeSeriesCompare3 = self.dataTimeSeriesCompare3.sorted{ $0.date > $1.date}
                     
                 default:
                     print("")
@@ -343,7 +364,7 @@ extension DailyDataViewController: UITableViewDelegate, UITableViewDataSource {
             return cell1
         case 2:
             let data12 = dataTimeSeriesCompare2[indexPath.row]
-            cell2.dateLabel.text = dateFormatterPrint.string(from: data12.date)
+            cell2.dateLabel.text = dateFormatterShortPrint.string(from: data12.date)
             cell2.open1Label.text = data12.open1
             cell2.low1Label.text = data12.low1
             cell2.open2Label.text = data12.open2
@@ -351,7 +372,7 @@ extension DailyDataViewController: UITableViewDelegate, UITableViewDataSource {
             return cell2
         case 3:
             let data123 = dataTimeSeriesCompare3[indexPath.row]
-            cell3.dateLabel.text = dateFormatterPrint.string(from: data123.date)
+            cell3.dateLabel.text = dateFormatterShortPrint.string(from: data123.date)
             cell3.open1Label.text = data123.open1
             cell3.low1Label.text = data123.low1
             cell3.open2Label.text = data123.open2
