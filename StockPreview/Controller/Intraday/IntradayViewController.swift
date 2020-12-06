@@ -18,9 +18,10 @@ class IntradayViewController: UIViewController {
     var timeSeriesArray1Min: [(Date, TimeSeries1Min)] = []
     var timeSeriesDict1Min: [Date: TimeSeries1Min] = [:]
     
+    let backView = UIView()
     let pickerView = UIPickerView()
-    let spinner = SpinnerViewController()
     var pickerToolBar = UIToolbar()
+    let spinner = SpinnerViewController()
     var emptyStateLabel: UILabel?
     
     private let interval = ["Date ↓","Date ↑","Open ↓","Open ↑","High ↓","High ↑","Low ↓","Low ↑"]
@@ -194,6 +195,12 @@ class IntradayViewController: UIViewController {
     
     
     @IBAction func sortingButtonTapped(_ sender: UIButton) {
+        // Setup background for pickerview
+        backView.backgroundColor = UIColor(white: 0, alpha: 0.2)
+        backView.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        self.view.addSubview(backView)
+        
+        // Setup pickerview
         pickerView.dataSource = self
         pickerView.delegate = self
         pickerView.backgroundColor = .white
@@ -201,6 +208,7 @@ class IntradayViewController: UIViewController {
         pickerView.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
         self.view.addSubview(pickerView)
         
+        // Setup toolbar for pickerview
         pickerToolBar = UIToolbar.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 35))
         pickerToolBar.barStyle = .default
         pickerToolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDonePickerButtonTapped))]
@@ -208,8 +216,12 @@ class IntradayViewController: UIViewController {
     }
     
     @objc func onDonePickerButtonTapped() {
+        // Remove pickerview
+        backView.removeFromSuperview()
         pickerView.removeFromSuperview()
         pickerToolBar.removeFromSuperview()
+        
+        // Get choosen data
         if let choosenIntervals = choosenInterval {
             // Remove array data
             self.timeSeriesArray1Min.removeAll()

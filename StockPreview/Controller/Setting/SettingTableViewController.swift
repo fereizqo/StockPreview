@@ -8,15 +8,30 @@
 import UIKit
 
 class SettingTableViewController: UITableViewController {
+    
+    private let interval = ["1 min","5 min", "15 min", "30 min", "60 min"]
+    private var choosenInterval: String?
+    
+    let backView = UIView()
+    let pickerView = UIPickerView()
+    var pickerToolBar = UIToolbar()
 
+    @IBOutlet weak var apiKeyValueLabel: UILabel!
+    @IBOutlet weak var intervalValueLabel: UILabel!
+    @IBOutlet weak var outputSizeSegmented: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // Make bottom of tableview into white
+        tableView.tableFooterView = UIView()
+        
+        // Check saved data
+        guard let userInterval = UserDefaults.standard.string(forKey: "User_Interval"),
+              let userOutputSize = UserDefaults.standard.string(forKey: "User_OutputSize") else { return }
+        intervalValueLabel.text = userInterval
+        if userOutputSize == "Compact" { outputSizeSegmented.selectedSegmentIndex = 1 }
+        else { outputSizeSegmented.selectedSegmentIndex = 0 }
     }
 
     // MARK: - Table view data source
@@ -32,62 +47,77 @@ class SettingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected: \(indexPath)")
+        print("selected: \(indexPath.row)")
+        
+        // Setup for API Key
+        if indexPath.row == 0 {
+            
+        }
+        
+        // Setup for Interval
+        else if indexPath.row == 1 {
+            // Setup background for pickerview
+            backView.backgroundColor = UIColor(white: 0, alpha: 0.2)
+            backView.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+            self.view.addSubview(backView)
+            
+            // Setup pickerview
+            pickerView.dataSource = self
+            pickerView.delegate = self
+            pickerView.backgroundColor = .white
+            pickerView.contentMode = .center
+            pickerView.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+            self.view.addSubview(pickerView)
+            
+            // Setup toolbar for pickerview
+            pickerToolBar = UIToolbar.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 35))
+            pickerToolBar.barStyle = .default
+            pickerToolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDonePickerButtonTapped))]
+            self.view.addSubview(pickerToolBar)
+        }
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    @IBAction func tapOutputSizeSegmented(_ sender: UISegmentedControl) {
+        switch outputSizeSegmented.selectedSegmentIndex {
+        case 0:
+            print("full")
+            UserDefaults.standard.set("Full", forKey: "User_OutputSize")
+        case 1:
+            print("compact")
+            UserDefaults.standard.set("Compact", forKey: "User_OutputSize")
+        default:
+            break
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    @objc func onDonePickerButtonTapped() {
+        // Remove pickerview
+        backView.removeFromSuperview()
+        pickerView.removeFromSuperview()
+        pickerToolBar.removeFromSuperview()
+        
+        // Save choosen interval
+        guard let choosen = choosenInterval else { return }
+        intervalValueLabel.text = choosen
+        UserDefaults.standard.set("\(choosen.split(separator: " ")[0])", forKey: "User_Interval")
     }
-    */
+}
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+extension SettingTableViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return interval.count
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return interval[row]
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        choosenInterval = interval[row]
     }
-    */
-
+    
 }

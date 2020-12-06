@@ -247,14 +247,14 @@
         <scene sceneID="PcJ-cJ-WTU">
             <objects>
                 <tableViewController id="RJ2-aC-n4L" customClass="SettingTableViewController" customModule="StockPreview" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="l5X-B2-1rJ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="l5X-B2-1rJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
                             <tableViewSection id="hi3-BP-i6V">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="QUR-bk-Uyp" detailTextLabel="X4O-i6-paP" rowHeight="60" style="IBUITableViewCellStyleValue1" id="QMU-a2-IbO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="QUR-bk-Uyp" detailTextLabel="X4O-i6-paP" rowHeight="60" style="IBUITableViewCellStyleValue1" id="QMU-a2-IbO">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QMU-a2-IbO" id="URY-tc-KYB">
@@ -278,7 +278,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="nm4-vB-rpA" detailTextLabel="ifK-p6-RpJ" rowHeight="60" style="IBUITableViewCellStyleValue1" id="8rb-4M-cUg">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="nm4-vB-rpA" detailTextLabel="ifK-p6-RpJ" rowHeight="60" style="IBUITableViewCellStyleValue1" id="8rb-4M-cUg">
                                         <rect key="frame" x="0.0" y="88" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8rb-4M-cUg" id="QjK-Ea-p92">
@@ -302,7 +302,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="qQ4-up-hmW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="qQ4-up-hmW">
                                         <rect key="frame" x="0.0" y="148" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qQ4-up-hmW" id="t0k-zY-lys">
@@ -315,6 +315,9 @@
                                                         <segment title="Full"/>
                                                         <segment title="Compact"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="tapOutputSizeSegmented:" destination="RJ2-aC-n4L" eventType="valueChanged" id="bGc-Id-W8p"/>
+                                                    </connections>
                                                 </segmentedControl>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Output Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmB-4G-0Fj">
                                                     <rect key="frame" x="20" y="19.5" width="90" height="21"/>
@@ -341,6 +344,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Setting" id="bJl-q1-ZBt"/>
+                    <connections>
+                        <outlet property="apiKeyValueLabel" destination="X4O-i6-paP" id="wtR-2Z-FyA"/>
+                        <outlet property="intervalValueLabel" destination="ifK-p6-RpJ" id="9sc-C5-cEj"/>
+                        <outlet property="outputSizeSegmented" destination="4vh-Zs-60J" id="ADc-Qt-qPF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1H-Mf-DnB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
