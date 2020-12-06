@@ -48,3 +48,28 @@ struct TimeSeriesDaily: Codable {
         case the8SplitCoefficient = "8. split coefficient"
     }
 }
+
+
+struct DataTimeSeriesDaily {
+    let date: Date
+    let open: String
+    let low: String
+}
+
+struct TimeSeriesCompare2 {
+    let date: Date
+    let open1: String
+    let low1: String
+    let open2: String
+    let low2: String
+}
+
+struct TimeSeriesCompare3 {
+    let date: Date
+    let open1: String
+    let low1: String
+    let open2: String
+    let low2: String
+    let open3: String
+    let low3: String
+}

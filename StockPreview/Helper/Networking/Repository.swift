@@ -55,7 +55,7 @@ class Repository {
     
     // Get Daily Data
     func getDailyData(symbol: String, completion: @escaping ((Result<DailyData>) -> Void)) {
-        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=\(symbol)&outputsize=compact&apikey=LAOWH18I5MY13PFY")!)
+        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=\(symbol)&outputsize=compact&apikey=HBST5HOLYWMZL9FD")!)
         
         
         apiClient.load(resource) { (result) in

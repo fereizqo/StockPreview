@@ -20,6 +20,14 @@ class DailyDataViewController: UIViewController {
     private let repository = Repository(apiClient: APIClient())
     var dailyDataArray: [(Date, TimeSeriesDaily)] = []
     var dailyDataDict: [Date: TimeSeriesDaily] = [:]
+    
+    var dataTimeSeries1: [DataTimeSeriesDaily] = []
+    var dataTimeSeries2: [DataTimeSeriesDaily] = []
+    var dataTimeSeries3: [DataTimeSeriesDaily] = []
+    
+    var dataTimeSeriesCompare2: [TimeSeriesCompare2] = []
+    var dataTimeSeriesCompare3: [TimeSeriesCompare3] = []
+    
     var dailyDataCount = 0
     var dailyDataSymbolArray: [String] = []
     
@@ -108,6 +116,10 @@ class DailyDataViewController: UIViewController {
                 self.conditionBasedOnSymbolCount()
                 print(Int(sender.value))
                 self.dailyDataSymbolArray.removeLast()
+                
+                // Remove array data
+                self.dailyDataArray.removeAll()
+                self.dailyDataTableView.reloadData()
             }
             // Creating action - cancel
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { alertAction in
@@ -127,11 +139,14 @@ class DailyDataViewController: UIViewController {
     func conditionOfAddingSymbol(symbol: String) {
         switch dailyDataCount {
         case 1:
-            symbol1Label.text = dailyDataSymbolArray[0]
+            symbol1Label.text = dailyDataSymbolArray[dailyDataCount-1]
+            getDailyData(symbol: symbol)
         case 2:
-            symbol2Label.text = dailyDataSymbolArray[1]
+            symbol2Label.text = dailyDataSymbolArray[dailyDataCount-1]
+            getDailyData(symbol: symbol)
         case 3:
-            symbol3Label.text = dailyDataSymbolArray[2]
+            symbol3Label.text = dailyDataSymbolArray[dailyDataCount-1]
+            getDailyData(symbol: symbol)
         default:
             print("")
         }
@@ -190,6 +205,9 @@ class DailyDataViewController: UIViewController {
     
     // Get daily data request
     func getDailyData(symbol: String) {
+        // Reset dailydatadict
+        dailyDataDict.removeAll()
+        
         repository.getDailyData(symbol: symbol) { result in
             switch result {
             case .success(let items):
@@ -204,11 +222,57 @@ class DailyDataViewController: UIViewController {
                 for (key, value) in self.dailyDataDict {
                     self.dailyDataArray.append((key,value))
                 }
+                
+                // Match to data count
+                switch self.dailyDataCount {
+                case 1:
+                    for (key, value) in self.dailyDataDict {
+                        let testDaily = DataTimeSeriesDaily(date: key, open: value.the1Open, low: value.the3Low)
+                        self.dataTimeSeries1.append(testDaily)
+                    }
+                case 2:
+                    for (key, value) in self.dailyDataDict {
+                        let testDaily = DataTimeSeriesDaily(date: key, open: value.the1Open, low: value.the3Low)
+                        self.dataTimeSeries2.append(testDaily)
+                    }
+                    
+                    for data1 in self.dataTimeSeries1 {
+                        for data2 in self.dataTimeSeries2 {
+                            if data1.date == data2.date {
+                                let timeSeriesCompare2 = TimeSeriesCompare2(date: data1.date, open1: data1.open, low1: data1.low, open2: data2.open, low2: data2.low)
+                                self.dataTimeSeriesCompare2.append(timeSeriesCompare2)
+                            }
+                        }
+                    }
+                    print("data compare 2: \(self.dataTimeSeriesCompare2)")
+                    
+                case 3:
+                    for (key, value) in self.dailyDataDict {
+                        let testDaily = DataTimeSeriesDaily(date: key, open: value.the1Open, low: value.the3Low)
+                        self.dataTimeSeries3.append(testDaily)
+                    }
+                    
+                    for data12 in self.dataTimeSeriesCompare2 {
+                        for data3 in self.dataTimeSeries3 {
+                            if data12.date == data3.date {
+                                let timeSeriesCompare3 = TimeSeriesCompare3(date: data12.date, open1: data12.open1, low1: data12.low1, open2: data12.open2, low2: data12.low2, open3: data3.open, low3: data3.low)
+                                self.dataTimeSeriesCompare3.append(timeSeriesCompare3)
+                            }
+                        }
+                    }
+                    print("data compare 3: \(self.dataTimeSeriesCompare3)")
+                    
+                default:
+                    print("")
+                }
+                
 
                 // Update tableview from main thread
                 DispatchQueue.main.async {
                     self.dailyDataTableView.reloadData()
+//                    print("daily data array: \(self.dailyDataArray)")
                 }
+                
             case .failure(let error):
                 print("get error daily data: \(error)")
             }
