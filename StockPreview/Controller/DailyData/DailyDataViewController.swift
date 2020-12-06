@@ -21,6 +21,7 @@ class DailyDataViewController: UIViewController {
     var dailyDataArray: [(Date, TimeSeriesDaily)] = []
     var dailyDataDict: [Date: TimeSeriesDaily] = [:]
     var dailyDataCount = 0
+    var dailyDataSymbolArray: [String] = []
     
     let spinner = SpinnerViewController()
     var emptyStateLabel: UILabel?
@@ -59,7 +60,7 @@ class DailyDataViewController: UIViewController {
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
-        // Detect increasing number
+        // Confrim increasing number
         if Int(sender.value) >= dailyDataCount {
             // Creating alert
             let alert = UIAlertController(title: "Input Stock Symbol", message: "Please input stock symbol to get it's information. \n (example: IDX)", preferredStyle: .alert)
@@ -71,16 +72,17 @@ class DailyDataViewController: UIViewController {
             
             // Creating action - oke
             let okeAction = UIAlertAction(title: "Oke", style: .default) { alertAction in
-                // Getting text from textfield
-                let textField = alert.textFields![0] as UITextField
-                if let inputText = textField.text {
-                    print(inputText)
-                }
-                
                 // Confirm adding symbol
                 self.dailyDataCount = Int(sender.value)
                 print(Int(sender.value))
-                self.conditionOfAddingSymbol()
+                self.conditionBasedOnSymbolCount()
+                
+                // Getting text from textfield
+                let textField = alert.textFields![0] as UITextField
+                if let inputText = textField.text {
+                    self.dailyDataSymbolArray.append(inputText)
+                    self.conditionOfAddingSymbol(symbol: inputText)
+                }
             }
             // Creating action - cancel
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { alertAction in
@@ -95,7 +97,7 @@ class DailyDataViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             
         }
-        // Detect decreasing number
+        // Confirm decreasing number
         else {
             // Creating alert
             let alert = UIAlertController(title: "Delete confirmation", message: "Are you sure want to decrease the total of symbol data?", preferredStyle: .alert)
@@ -103,8 +105,9 @@ class DailyDataViewController: UIViewController {
             // Creating action - yes
             let okeAction = UIAlertAction(title: "Yes", style: .default) { alertAction in
                 self.dailyDataCount = Int(sender.value)
-                self.conditionOfAddingSymbol()
+                self.conditionBasedOnSymbolCount()
                 print(Int(sender.value))
+                self.dailyDataSymbolArray.removeLast()
             }
             // Creating action - cancel
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { alertAction in
@@ -120,9 +123,25 @@ class DailyDataViewController: UIViewController {
         }
     }
     
-    func conditionOfAddingSymbol() {
+    // Condition when adding symbol
+    func conditionOfAddingSymbol(symbol: String) {
+        switch dailyDataCount {
+        case 1:
+            symbol1Label.text = dailyDataSymbolArray[0]
+        case 2:
+            symbol2Label.text = dailyDataSymbolArray[1]
+        case 3:
+            symbol3Label.text = dailyDataSymbolArray[2]
+        default:
+            print("")
+        }
+    }
+    
+    // Condition based on Symbol Count
+    func conditionBasedOnSymbolCount() {
         switch dailyDataCount {
         case 0:
+            // Hidden all symbol label, table and title
             symbol1Label.isHidden = true
             symbol2Label.isHidden = true
             symbol3Label.isHidden = true
@@ -130,10 +149,12 @@ class DailyDataViewController: UIViewController {
             dailyDataTableView.isHidden = true
             titleTableLabel.isHidden = true
         case 1:
+            // Show symbol 1 label
             symbol1Label.isHidden = false
             symbol2Label.isHidden = true
             symbol3Label.isHidden = true
             
+            // Show table and title label then remove emptystate label
             dailyDataTableView.isHidden = false
             titleTableLabel.isHidden = false
             if let label = emptyStateLabel{
@@ -141,10 +162,12 @@ class DailyDataViewController: UIViewController {
             }
             
         case 2:
+            // Show symbol 1,2 label
             symbol1Label.isHidden = false
             symbol2Label.isHidden = false
             symbol3Label.isHidden = true
         case 3:
+            // Show symbol 1,2,3 label
             symbol1Label.isHidden = false
             symbol2Label.isHidden = false
             symbol3Label.isHidden = false
