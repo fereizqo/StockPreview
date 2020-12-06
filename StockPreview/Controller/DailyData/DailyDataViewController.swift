@@ -52,6 +52,12 @@ class DailyDataViewController: UIViewController {
         return formatter
      }()
     
+    lazy var currentDateFormatterPrint: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMMM yyyy"
+        return formatter
+     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -69,6 +75,7 @@ class DailyDataViewController: UIViewController {
         dailyDataTableView.dataSource = self
         
         // Initial condition
+        dateLabel.text = "Current Date : \(currentDateFormatterPrint.string(from: Date()))"
         symbol1Label.isHidden = true
         symbol2Label.isHidden = true
         symbol3Label.isHidden = true

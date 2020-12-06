@@ -64,7 +64,7 @@ class IntradayViewController: UIViewController {
         sortingButton.layer.cornerRadius = 5
         sortingButton.layer.borderWidth = 1
         sortingButton.layer.borderColor = UIColor.darkGray.cgColor
-        dateLabel.text = currentDateFormatterPrint.string(from: Date())
+        dateLabel.text = "Current Date : \(currentDateFormatterPrint.string(from: Date()))"
         
         // Checking symbol are selected or not
         firstLogin()
