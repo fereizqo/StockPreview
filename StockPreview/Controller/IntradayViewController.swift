@@ -24,6 +24,8 @@ class IntradayViewController: UIViewController {
     private let interval = ["Open ↓","Open ↑","High ↓","High ↑","Low ↓","Low ↑"]
     private var choosenInterval: String?
     
+    var emptyStateLabel: UILabel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +39,7 @@ class IntradayViewController: UIViewController {
         intradayTableView.dataSource = self
         
         // Appeareances
+        setupEmptyState()
         symbolButton.layer.cornerRadius = 5
         symbolButton.layer.borderWidth = 1
         symbolButton.layer.borderColor = UIColor.darkGray.cgColor
@@ -54,8 +57,14 @@ class IntradayViewController: UIViewController {
         if let stockSymbol = UserDefaults.standard.string(forKey: "StockSymbol") {
             intradayTableView.isHidden = false
             sortingButton.isHidden = false
+            sortingButton.setTitle("Sort by : ", for: .normal)
             symbolButton.setTitle(stockSymbol, for: .normal)
             symbolButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
+            getIntradayData(symbol: stockSymbol)
+            // Remove emptystate from view
+            if let label = emptyStateLabel{
+                label.removeFromSuperview()
+            }
         }
         // Selected symbol was not set
         else {
@@ -65,6 +74,18 @@ class IntradayViewController: UIViewController {
             symbolButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .subheadline)
         }
         
+    }
+    
+    // Setup empty state
+    func setupEmptyState() {
+        emptyStateLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 50))
+        if let label = emptyStateLabel {
+            label.center = CGPoint(x: view.frame.size.width/2, y: view.frame.size.height/2)
+            label.textAlignment = .center
+            label.text = "No 'symbol' data is showed. \n Please 'input' first."
+            label.numberOfLines = 0
+            self.view.addSubview(label)
+        }
     }
     
     // Get request for intraday data
@@ -154,7 +175,6 @@ class IntradayViewController: UIViewController {
             
             // Ascending order
             if choosenIntervals.split(separator: " ")[1] == "↓" {
-                
                 if param == "Open" {
                     for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.value.the1Open < $1.value.the1Open }) {
                         self.timeSeriesArray1Min.append((key,value))
@@ -168,14 +188,10 @@ class IntradayViewController: UIViewController {
                         self.timeSeriesArray1Min.append((key,value))
                     }
                 }
-                
-                // Reload tableview
-                intradayTableView.reloadData()
             }
             
             // Descending order
             else if choosenIntervals.split(separator: " ")[1] == "↑" {
-                
                 if param == "Open" {
                     for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.value.the1Open > $1.value.the1Open }) {
                         self.timeSeriesArray1Min.append((key,value))
@@ -190,11 +206,10 @@ class IntradayViewController: UIViewController {
                         self.timeSeriesArray1Min.append((key,value))
                     }
                 }
-                
-                // Reload tableview
-                intradayTableView.reloadData()
             }
             
+            // Reload tableview
+            intradayTableView.reloadData()
         }
     }
 }
