@@ -19,9 +19,9 @@ class IntradayViewController: UIViewController {
     var timeSeriesDict1Min: [Date: TimeSeries1Min] = [:]
     
     let pickerView = UIPickerView()
+    let spinner = SpinnerViewController()
     var pickerToolBar = UIToolbar()
     var emptyStateLabel: UILabel?
-    let spinner = SpinnerViewController()
     
     private let interval = ["Date ↓","Date ↑","Open ↓","Open ↑","High ↓","High ↑","Low ↓","Low ↑"]
     private var choosenInterval: String?
