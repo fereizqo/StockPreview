@@ -16,3 +16,34 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
   }
 }
+
+extension KeyedDecodingContainer{
+    enum ParsingError:Error{
+      case noKeyFound
+      /*
+        Add other errors here for more use cases
+      */
+    }
+
+    func decode<T>(_ type:T.Type, forKeys keys:[K]) throws -> T where T:Decodable {
+       for key in keys{
+         if let val = try? self.decode(type, forKey: key){
+           return val
+         }
+       }
+     throw ParsingError.noKeyFound
+   }
+}
+
+extension KeyedDecodingContainer where K == AnyKey {
+    func decode<T>(_ type: T.Type, forMappedKey key: String, in keyMap: [String: [String]]) throws -> T where T : Decodable{
+
+        for key in keyMap[key] ?? [] {
+            if let value = try? decode(T.self, forKey: AnyKey(stringValue: key)) {
+                return value
+            }
+        }
+
+        return try decode(T.self, forKey: AnyKey(stringValue: key))
+    }
+}

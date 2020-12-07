@@ -15,6 +15,7 @@ class IntradayViewController: UIViewController {
     @IBOutlet weak var intradayTableView: UITableView!
     
     private let repository = Repository(apiClient: APIClient())
+    private let apiClient = APIClient()
     var timeSeriesArray1Min: [(Date, TimeSeries1Min)] = []
     var timeSeriesDict1Min: [Date: TimeSeries1Min] = [:]
     
@@ -68,7 +69,63 @@ class IntradayViewController: UIViewController {
         dateLabel.text = "Current Date : \(currentDateFormatterPrint.string(from: Date()))"
         
         // Checking symbol are selected or not
-        firstLogin()
+//        firstLogin()
+        
+        // Testing
+//        guard let userInterval = UserDefaults.standard.string(forKey: "User_Interval"),
+//              let userOutputSize = UserDefaults.standard.string(forKey: "User_OutputSize") else { return }
+        
+//        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&outputsize=\(userOutputSize)&interval=\(userInterval)min&apikey=LAOWH18I5MY13PFY")!)
+        
+//        apiClient.load(resource) { result in
+//            switch result {
+//            case .success(let data):
+//                print("retrieve data: \(String(data: data, encoding: .utf8)) from resource: \(resource)")
+//                let jsonData = Data(data)
+//                print(jsonData)
+//                // Parsing JSON
+//                do {
+//                    // make sure this JSON is in the format we expect
+//                    if let jsonDict = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                        // try to read out a string array
+//                        print(json)
+//                        let a = json["Meta Data"]
+//                        print(a)
+                        
+//                        for object in jsonDict {
+//                            print(object.value)
+//                            let a = object.value
+//                        }
+//
+//                        if let names = json["Meta Data"] as? [[String:String]] {
+//                            print("ass")
+//                        }
+//                    }
+//                } catch let error as NSError {
+//                    print("Failed to load: \(error.localizedDescription)")
+//                }
+//
+//            case .failure(let error):
+//                print("retrieve error: \(error)")
+//            }
+//        }
+        
+        // Testing 2
+        // Do request
+        repository.getIntradayData(symbol: "IBM"){ result in
+            switch result {
+            case .success(let items):
+                // Store new format dict data
+                for (key, value) in items.timeSeries {
+                    print(key)
+//                    guard let date = self.dateFormatterGet.date(from: key) else { return }
+//                    self.timeSeriesDict1Min.updateValue(value, forKey: date)
+                }
+            case .failure(let error):
+                print("get error intraday data: \(error)")
+            }
+        }
+        
     }
     
     // Setup empty state
