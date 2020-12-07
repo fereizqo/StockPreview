@@ -48,8 +48,10 @@ class IntradayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        // Dismiss keyboard when tap around
+        self.hideKeyboardWhenTappedAround()
         
         // Register xib cell
         let cellNib = UINib(nibName: "DataSymbolViewCell", bundle: nil)
@@ -212,7 +214,7 @@ class IntradayViewController: UIViewController {
         pickerView.delegate = self
         pickerView.backgroundColor = .white
         pickerView.contentMode = .center
-        pickerView.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        pickerView.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 350, width: UIScreen.main.bounds.size.width, height: 350)
         
         if let row = interval.lastIndex(of: choosenInterval ?? "Date ↓") {
                 pickerView.selectRow(row, inComponent: 0, animated: false)
@@ -221,7 +223,7 @@ class IntradayViewController: UIViewController {
         self.view.addSubview(pickerView)
         
         // Setup toolbar for pickerview
-        pickerToolBar = UIToolbar.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 35))
+        pickerToolBar = UIToolbar.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.size.height - 350, width: UIScreen.main.bounds.size.width, height: 45))
         pickerToolBar.barStyle = .default
         pickerToolBar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDonePickerButtonTapped))]
         self.view.addSubview(pickerToolBar)

@@ -35,7 +35,7 @@ class APIRequestTest: XCTestCase {
     
     func testGetIntradayDataNotMatch() {
         let expect = XCTestExpectation(description: "Not Matched")
-        var symbolTest = "IDX"
+        let symbolTest = "IDX"
         var symbolGet = ""
         
         let repository = Repository(apiClient: APIClient())
@@ -80,7 +80,7 @@ class APIRequestTest: XCTestCase {
     
     func testGetDailyDataMatch() {
         let expect = XCTestExpectation(description: "Matched")
-        var symbolTest = "IBM"
+        let symbolTest = "IBM"
         var symbolGet = ""
         
         let repository = Repository(apiClient: APIClient())

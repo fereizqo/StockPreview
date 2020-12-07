@@ -60,8 +60,10 @@ class DailyDataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        // Dismiss keyboard when tap around
+        self.hideKeyboardWhenTappedAround()
         
         // Register xib cell
         let cellNib1 = UINib(nibName: "DailyData1TableViewCell", bundle: nil)
