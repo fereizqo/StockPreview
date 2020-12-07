@@ -37,26 +37,6 @@ class Repository {
         }
     }
     
-    func getIntradayData5Min(_ completion: @escaping ((Result<IntradayData5Min>) -> Void)) {
-        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&outputsize=full&interval=1min&apikey=LAOWH18I5MY13PFY")!)
-        
-        apiClient.load(resource) { (result) in
-            switch result {
-            case .success(let data):
-                do {
-                    let items = try JSONDecoder().decode(IntradayData5Min.self, from: data)
-                    completion(.success(items))
-                } catch {
-                    completion(.failure(error))
-                }
-             
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-    
-    // TESTING
     // Getting Intraday Data
     func getIntradayData(symbol: String, completion: @escaping ((Result<IntradayData>) -> Void)) {
         guard let userInterval = UserDefaults.standard.string(forKey: "User_Interval"),

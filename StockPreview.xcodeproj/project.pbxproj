@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		491F3DF2257DA17000162EC4 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491F3DF1257DA17000162EC4 /* Test.swift */; };
+		491F3DF2257DA17000162EC4 /* IntradayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491F3DF1257DA17000162EC4 /* IntradayData.swift */; };
 		4968C475257B6AF600A1D5E2 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C474257B6AF600A1D5E2 /* SettingTableViewController.swift */; };
 		4968C49A257B72B400A1D5E2 /* IntradayData5Min.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C499257B72B400A1D5E2 /* IntradayData5Min.swift */; };
 		4968C4A2257B75B300A1D5E2 /* IntradayData1Min.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4968C4A1257B75B300A1D5E2 /* IntradayData1Min.swift */; };
@@ -67,7 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		491F3DF1257DA17000162EC4 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		491F3DF1257DA17000162EC4 /* IntradayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayData.swift; sourceTree = "<group>"; };
 		4968C474257B6AF600A1D5E2 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		4968C499257B72B400A1D5E2 /* IntradayData5Min.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayData5Min.swift; sourceTree = "<group>"; };
 		4968C4A1257B75B300A1D5E2 /* IntradayData1Min.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayData1Min.swift; sourceTree = "<group>"; };
@@ -197,8 +197,8 @@
 		49BA18F6257B12B700CD7BEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				491F3DF1257DA17000162EC4 /* IntradayData.swift */,
 				4968C4A1257B75B300A1D5E2 /* IntradayData1Min.swift */,
-				491F3DF1257DA17000162EC4 /* Test.swift */,
 				4968C499257B72B400A1D5E2 /* IntradayData5Min.swift */,
 				4968C4AE257B76CE00A1D5E2 /* IntradayData15Min.swift */,
 				4968C4A6257B75FD00A1D5E2 /* IntradayData30Min.swift */,
@@ -450,7 +450,7 @@
 				4968C4A2257B75B300A1D5E2 /* IntradayData1Min.swift in Sources */,
 				49BA191E257B1EDA00CD7BEC /* DataSymbolTableViewCell.swift in Sources */,
 				4968C4DE257CC49700A1D5E2 /* Extension.swift in Sources */,
-				491F3DF2257DA17000162EC4 /* Test.swift in Sources */,
+				491F3DF2257DA17000162EC4 /* IntradayData.swift in Sources */,
 				4968C4CF257B842800A1D5E2 /* Repository.swift in Sources */,
 				4968C50F257D12A400A1D5E2 /* DailyData2HeaderTableViewCell.swift in Sources */,
 				4968C519257D12AF00A1D5E2 /* DailyData3HeaderTableViewCell.swift in Sources */,

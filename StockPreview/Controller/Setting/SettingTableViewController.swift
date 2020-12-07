@@ -29,7 +29,7 @@ class SettingTableViewController: UITableViewController {
         // Check saved data
         guard let userInterval = UserDefaults.standard.string(forKey: "User_Interval"),
               let userOutputSize = UserDefaults.standard.string(forKey: "User_OutputSize") else { return }
-        intervalValueLabel.text = userInterval
+        intervalValueLabel.text = "\(userInterval) min"
         if userOutputSize == "Compact" { outputSizeSegmented.selectedSegmentIndex = 1 }
         else { outputSizeSegmented.selectedSegmentIndex = 0 }
     }
