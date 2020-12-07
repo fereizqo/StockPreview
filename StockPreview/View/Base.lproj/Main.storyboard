@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,11 +16,23 @@
                     <view key="view" contentMode="scaleToFill" id="iR8-wd-dK0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stock Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duj-ZR-fTc">
+                                <rect key="frame" x="122" y="431" width="170" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="S4I-0e-RfZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="duj-ZR-fTc" firstAttribute="centerX" secondItem="iR8-wd-dK0" secondAttribute="centerX" id="7oN-Ve-Xep"/>
+                            <constraint firstItem="duj-ZR-fTc" firstAttribute="centerY" secondItem="iR8-wd-dK0" secondAttribute="centerY" id="rBk-jA-wtU"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <segue destination="l9b-mZ-tRl" kind="presentation" identifier="goToHome" modalPresentationStyle="fullScreen" id="sym-SL-ib1"/>
+                        <segue destination="l9b-mZ-tRl" kind="presentation" identifier="goToHome" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="sym-SL-ib1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="su1-81-csT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -34,6 +47,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="w20-e9-AZx" kind="relationship" relationship="viewControllers" id="mLA-dT-ubQ"/>
@@ -49,7 +63,9 @@
         <scene sceneID="8NX-e4-aSJ">
             <objects>
                 <navigationController id="w20-e9-AZx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Intraday" id="Wa4-8P-rIP"/>
+                    <tabBarItem key="tabBarItem" title="Intraday" id="Wa4-8P-rIP">
+                        <imageReference key="image" image="clock.fill" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UhN-bq-294">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -138,11 +154,13 @@
             </objects>
             <point key="canvasLocation" x="934.78260869565224" y="111.83035714285714"/>
         </scene>
-        <!--Daily Adjusted-->
+        <!--Daily Data-->
         <scene sceneID="bos-tU-UuH">
             <objects>
                 <navigationController id="XUa-Ke-Eme" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Daily Adjusted" id="XH8-Qj-8TD"/>
+                    <tabBarItem key="tabBarItem" title="Daily Data" id="XH8-Qj-8TD">
+                        <imageReference key="image" image="calendar.badge.clock" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="z3F-FC-5TA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -155,7 +173,7 @@
             </objects>
             <point key="canvasLocation" x="83" y="824"/>
         </scene>
-        <!--Daily Adjusted-->
+        <!--Daily Data-->
         <scene sceneID="jCj-ph-MHv">
             <objects>
                 <viewController id="PF1-vw-mLu" customClass="DailyDataViewController" customModule="StockPreview" customModuleProvider="target" sceneMemberID="viewController">
@@ -229,7 +247,7 @@
                             <constraint firstItem="ed0-Pa-tCw" firstAttribute="bottom" secondItem="bd0-C3-2q4" secondAttribute="bottom" constant="10" id="vw3-Xk-PfU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Daily Adjusted" id="36b-6F-eEs"/>
+                    <navigationItem key="navigationItem" title="Daily Data" id="36b-6F-eEs"/>
                     <connections>
                         <outlet property="dailyDataTableView" destination="bd0-C3-2q4" id="LlK-Qr-dI5"/>
                         <outlet property="dateLabel" destination="tD7-38-50e" id="pEG-IL-T2a"/>
@@ -248,7 +266,9 @@
         <scene sceneID="7WB-ts-dA2">
             <objects>
                 <navigationController id="AyH-eU-1tW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" id="7d7-3m-jBg"/>
+                    <tabBarItem key="tabBarItem" title="Setting" id="7d7-3m-jBg">
+                        <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3p5-Lu-VP2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -374,6 +394,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar.badge.clock" catalog="system" width="128" height="108"/>
+        <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
