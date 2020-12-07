@@ -16,8 +16,8 @@ class IntradayViewController: UIViewController {
     
     private let repository = Repository(apiClient: APIClient())
     private let apiClient = APIClient()
-    var timeSeriesArray1Min: [(Date, TimeSeries1Min)] = []
-    var timeSeriesDict1Min: [Date: TimeSeries1Min] = [:]
+    var timeSeriesArray: [(Date, TimeSeries)] = []
+    var timeSeriesDict: [Date: TimeSeries] = [:]
     
     let backView = UIView()
     let pickerView = UIPickerView()
@@ -118,8 +118,8 @@ class IntradayViewController: UIViewController {
         spinner.didMove(toParent: self)
         
         // Reset data
-        timeSeriesDict1Min.removeAll()
-        timeSeriesArray1Min.removeAll()
+        timeSeriesDict.removeAll()
+        timeSeriesArray.removeAll()
         
         // Do request
         repository.getIntradayData(symbol: "IBM"){ result in
@@ -129,12 +129,12 @@ class IntradayViewController: UIViewController {
                 // Store new format dict data
                 for (key, value) in items.timeSeries {
                     guard let date = self.dateFormatterGet.date(from: key) else { return }
-                    self.timeSeriesDict1Min.updateValue(value, forKey: date)
+                    self.timeSeriesDict.updateValue(value, forKey: date)
                 }
                 
                 // Dictionary to Array
-                for (key, value) in self.timeSeriesDict1Min {
-                    self.timeSeriesArray1Min.append((key,value))
+                for (key, value) in self.timeSeriesDict {
+                    self.timeSeriesArray.append((key,value))
                 }
 
                 // Update tableview from main thread
@@ -225,7 +225,7 @@ class IntradayViewController: UIViewController {
         // Get choosen data
         if let choosenIntervals = choosenInterval {
             // Remove array data
-            self.timeSeriesArray1Min.removeAll()
+            self.timeSeriesArray.removeAll()
             
             // Set button title
             sortingButton.setTitle("Sort by : \(choosenIntervals)", for: .normal)
@@ -236,20 +236,20 @@ class IntradayViewController: UIViewController {
             // Ascending order
             if choosenIntervals.split(separator: " ")[1] == "↓" {
                 if param == "Open" {
-                    for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.value.the1Open < $1.value.the1Open }) {
-                        self.timeSeriesArray1Min.append((key,value))
+                    for (key, value) in self.timeSeriesDict.sorted(by: { $0.value.the1Open < $1.value.the1Open }) {
+                        self.timeSeriesArray.append((key,value))
                     }
                 } else if param == "High" {
-                    for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.value.the2High < $1.value.the2High }) {
-                        self.timeSeriesArray1Min.append((key,value))
+                    for (key, value) in self.timeSeriesDict.sorted(by: { $0.value.the2High < $1.value.the2High }) {
+                        self.timeSeriesArray.append((key,value))
                     }
                 } else if param == "Low" {
-                    for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.value.the3Low < $1.value.the3Low }) {
-                        self.timeSeriesArray1Min.append((key,value))
+                    for (key, value) in self.timeSeriesDict.sorted(by: { $0.value.the3Low < $1.value.the3Low }) {
+                        self.timeSeriesArray.append((key,value))
                     }
                 } else if param == "Date" {
-                    for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.key < $1.key }) {
-                        self.timeSeriesArray1Min.append((key,value))
+                    for (key, value) in self.timeSeriesDict.sorted(by: { $0.key < $1.key }) {
+                        self.timeSeriesArray.append((key,value))
                     }
                 }
             }
@@ -257,21 +257,21 @@ class IntradayViewController: UIViewController {
             // Descending order
             else if choosenIntervals.split(separator: " ")[1] == "↑" {
                 if param == "Open" {
-                    for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.value.the1Open > $1.value.the1Open }) {
-                        self.timeSeriesArray1Min.append((key,value))
+                    for (key, value) in self.timeSeriesDict.sorted(by: { $0.value.the1Open > $1.value.the1Open }) {
+                        self.timeSeriesArray.append((key,value))
                     }
                 } else if param == "High" {
-                    for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.value.the2High > $1.value.the2High }) {
-                        self.timeSeriesArray1Min.append((key,value))
+                    for (key, value) in self.timeSeriesDict.sorted(by: { $0.value.the2High > $1.value.the2High }) {
+                        self.timeSeriesArray.append((key,value))
                     }
                     
                 } else if param == "Low" {
-                    for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.value.the3Low > $1.value.the3Low }) {
-                        self.timeSeriesArray1Min.append((key,value))
+                    for (key, value) in self.timeSeriesDict.sorted(by: { $0.value.the3Low > $1.value.the3Low }) {
+                        self.timeSeriesArray.append((key,value))
                     }
                 } else if param == "Date" {
-                    for (key, value) in self.timeSeriesDict1Min.sorted(by: { $0.key > $1.key }) {
-                        self.timeSeriesArray1Min.append((key,value))
+                    for (key, value) in self.timeSeriesDict.sorted(by: { $0.key > $1.key }) {
+                        self.timeSeriesArray.append((key,value))
                     }
                 }
             }
@@ -291,12 +291,12 @@ extension IntradayViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timeSeriesArray1Min.count
+        return timeSeriesArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! DataSymbolTableViewCell
-        let (key, value) = timeSeriesArray1Min[indexPath.row]
+        let (key, value) = timeSeriesArray[indexPath.row]
         
         cell.timeLabel.text = dateFormatterPrint.string(from: key)
         cell.openLabel.text = value.the1Open

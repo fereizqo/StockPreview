@@ -10,7 +10,7 @@ import Foundation
 // MARK: - IntradayData
 struct IntradayData: Decodable{
      let metaData: MetaData
-     let timeSeries: [String: TimeSeries1Min]
+     let timeSeries: [String: TimeSeries]
     
     init(from decoder: Decoder) throws {
         let keyMap = [
@@ -21,12 +21,12 @@ struct IntradayData: Decodable{
         let container = try decoder.container(keyedBy: AnyKey.self)
 
         self.metaData = try container.decode(MetaData.self, forMappedKey: "metaData", in: keyMap)
-        self.timeSeries = try container.decode([String: TimeSeries1Min].self, forMappedKey: "timeSeries", in: keyMap)
+        self.timeSeries = try container.decode([String: TimeSeries].self, forMappedKey: "timeSeries", in: keyMap)
     }
 }
 
-// MARK: - TimeSeries1Min
-struct TimeSeries1Min: Codable {
+// MARK: - TimeSeries
+struct TimeSeries: Codable {
     let the1Open, the2High, the3Low, the4Close: String
     let the5Volume: String
 
