@@ -25,11 +25,13 @@ class SettingTableViewController: UITableViewController {
         
         // Make bottom of tableview into white
         tableView.tableFooterView = UIView()
-        apiKeyValueLabel.isHidden = true
         
         // Check saved data
         guard let userInterval = UserDefaults.standard.string(forKey: "User_Interval"),
-              let userOutputSize = UserDefaults.standard.string(forKey: "User_OutputSize") else { return }
+              let userOutputSize = UserDefaults.standard.string(forKey: "User_OutputSize"),
+              let apiKey = Keychain.shared["User_APIKey"] else { return }
+        
+        apiKeyValueLabel.text = apiKey
         intervalValueLabel.text = "\(userInterval) min"
         if userOutputSize == "Compact" { outputSizeSegmented.selectedSegmentIndex = 1 }
         else { outputSizeSegmented.selectedSegmentIndex = 0 }
@@ -96,6 +98,12 @@ class SettingTableViewController: UITableViewController {
             pickerView.backgroundColor = .white
             pickerView.contentMode = .center
             pickerView.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+            
+            guard let userInterval = UserDefaults.standard.string(forKey: "User_Interval") else { return }
+            if let row = interval.lastIndex(of: choosenInterval ?? "\(userInterval) min") {
+                    pickerView.selectRow(row, inComponent: 0, animated: false)
+            }
+            
             self.view.addSubview(pickerView)
             
             // Setup toolbar for pickerview

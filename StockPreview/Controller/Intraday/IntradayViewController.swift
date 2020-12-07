@@ -138,12 +138,13 @@ class IntradayViewController: UIViewController {
                 }
                 
                 // Dictionary to Array
-                for (key, value) in self.timeSeriesDict {
+                for (key, value) in self.timeSeriesDict.sorted(by: { $0.key < $1.key }) {
                     self.timeSeriesArray.append((key,value))
                 }
 
-                // Update tableview from main thread
+                // Update tableview and button from main thread
                 DispatchQueue.main.async {
+                    self.sortingButton.setTitle("Sort by : Date ↓", for: .normal)
                     self.intradayTableView.reloadData()
                     
                     // Remove spinner
@@ -212,6 +213,11 @@ class IntradayViewController: UIViewController {
         pickerView.backgroundColor = .white
         pickerView.contentMode = .center
         pickerView.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        
+        if let row = interval.lastIndex(of: choosenInterval ?? "Date ↓") {
+                pickerView.selectRow(row, inComponent: 0, animated: false)
+        }
+        
         self.view.addSubview(pickerView)
         
         // Setup toolbar for pickerview
