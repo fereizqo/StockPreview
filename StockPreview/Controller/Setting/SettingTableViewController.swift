@@ -25,6 +25,7 @@ class SettingTableViewController: UITableViewController {
         
         // Make bottom of tableview into white
         tableView.tableFooterView = UIView()
+        apiKeyValueLabel.isHidden = true
         
         // Check saved data
         guard let userInterval = UserDefaults.standard.string(forKey: "User_Interval"),
@@ -51,7 +52,35 @@ class SettingTableViewController: UITableViewController {
         
         // Setup for API Key
         if indexPath.row == 0 {
+            // Creating alert
+            let alert = UIAlertController(title: "Input API Key", message: "Please input your API Key.", preferredStyle: .alert)
+            // Adding textfield to alert
+            alert.addTextField { textField in
+                textField.placeholder = "Input API Key"
+            }
             
+            // Creating action - oke
+            let okeAction = UIAlertAction(title: "Oke", style: .default) { alertAction in
+                // Getting text from textfield
+                let textField = alert.textFields![0] as UITextField
+                if let inputText = textField.text {
+                    // Save API Key
+                    Keychain.shared["User_APIKey"] = inputText
+                    if let value = Keychain.shared["User_APIKey"] {
+                        print(value)
+                    }
+                }
+            }
+            // Creating action - cancel
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { alertAction in
+            }
+            
+            // Adding action to textfield
+            alert.addAction(okeAction)
+            alert.addAction(cancelAction)
+            
+            // Present alert
+            self.present(alert, animated: true, completion: nil)
         }
         
         // Setup for Interval

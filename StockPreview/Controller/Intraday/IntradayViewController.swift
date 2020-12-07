@@ -121,8 +121,13 @@ class IntradayViewController: UIViewController {
         timeSeriesDict.removeAll()
         timeSeriesArray.removeAll()
         
+        // Get apiKey
+        guard let apiKey = Keychain.shared["User_APIKey"] else { return }
+        print("result:",apiKey)
+        
         // Do request
-        repository.getIntradayData(symbol: "IBM"){ result in
+        print("test")
+        repository.getIntradayData(symbol: "IBM", apiKey: apiKey){ result in
             switch result {
             case .success(let items):
                 

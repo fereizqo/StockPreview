@@ -245,8 +245,12 @@ class DailyDataViewController: UIViewController {
         // Reset dailydatadict
         dailyDataDict.removeAll()
         
+        // Get apiKey
+        guard let apiKey = Keychain.shared["User_APIKey"]  else { return }
+        print("result:",apiKey)
+        
         // Do request
-        repository.getDailyData(symbol: symbol) { result in
+        repository.getDailyData(symbol: symbol, apiKey: apiKey) { result in
             switch result {
             case .success(let items):
                 

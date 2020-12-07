@@ -15,11 +15,13 @@ class Repository {
     }
     
     // Getting Intraday Data
-    func getIntradayData(symbol: String, completion: @escaping ((Result<IntradayData>) -> Void)) {
+    func getIntradayData(symbol: String, apiKey: String, completion: @escaping ((Result<IntradayData>) -> Void)) {
         guard let userInterval = UserDefaults.standard.string(forKey: "User_Interval"),
               let userOutputSize = UserDefaults.standard.string(forKey: "User_OutputSize") else { return }
         
-        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)&outputsize=\(userOutputSize)&interval=\(userInterval)min&apikey=LAOWH18I5MY13PFY")!)
+        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)&outputsize=\(userOutputSize)&interval=\(userInterval)min&apikey=\(apiKey)")!)
+        
+        print(resource)
         
         apiClient.load(resource) { (result) in
             switch result {
@@ -38,12 +40,13 @@ class Repository {
     }
     
     // Get Daily Data
-    func getDailyData(symbol: String, completion: @escaping ((Result<DailyData>) -> Void)) {
+    func getDailyData(symbol: String, apiKey: String, completion: @escaping ((Result<DailyData>) -> Void)) {
         guard let _ = UserDefaults.standard.string(forKey: "User_Interval"),
               let userOutputSize = UserDefaults.standard.string(forKey: "User_OutputSize") else { return }
         
-        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=\(symbol)&outputsize=\(userOutputSize)&apikey=HBST5HOLYWMZL9FD")!)
+        let resource = Resource(url: URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=\(symbol)&outputsize=\(userOutputSize)&apikey=\(apiKey)")!)
         
+        print(resource)
         
         apiClient.load(resource) { (result) in
             switch result {
